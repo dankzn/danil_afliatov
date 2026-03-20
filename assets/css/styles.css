@@ -227,3 +227,70 @@ button:hover {
   background: #6366f1;
   color: white;
 }
+/* ===== HERO GRID ===== */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* левая часть */
+.hero-left {
+  text-align: left;
+}
+
+/* усиливаем текст */
+.hero-left h1 {
+  font-size: 56px;
+}
+
+.hero-left p {
+  margin-top: 15px;
+}
+
+/* ===== STATS ===== */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.hero-stats h3 {
+  font-size: 28px;
+  color: #a5b4fc;
+}
+
+.hero-stats p {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* ===== RIGHT SIDE ===== */
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+/* карточка */
+.hero-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.hero-card p {
+  margin: 10px 0;
+  color: #cbd5f5;
+}
+
+/* ===== LOGO УСИЛЕНИЕ ===== */
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+}
