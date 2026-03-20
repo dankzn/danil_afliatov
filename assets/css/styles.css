@@ -99,3 +99,75 @@ button:hover {
   margin: 0 auto;
   padding: 40px 20px;
 }
+/* ===== HERO UPGRADE ===== */
+
+.hero {
+  position: relative;
+  padding: 180px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* glow фон */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99,102,241,0.25), transparent 70%);
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* заголовок сильнее */
+.hero h1 {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* кнопки */
+.hero-buttons {
+  margin-top: 40px;
+}
+
+/* базовая кнопка */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  margin: 8px;
+  border-radius: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* primary */
+.btn.primary {
+  background: linear-gradient(90deg, #6366f1, #4f46e5);
+  color: white;
+  box-shadow: 0 10px 30px rgba(99,102,241,0.4);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(99,102,241,0.6);
+}
+
+/* secondary */
+.btn.secondary {
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #cbd5f5;
+}
+
+.btn.secondary:hover {
+  background: rgba(255,255,255,0.05);
+}
