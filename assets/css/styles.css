@@ -171,3 +171,59 @@ button:hover {
 .btn.secondary:hover {
   background: rgba(255,255,255,0.05);
 }
+/* ===== LOGO ===== */
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #a5b4fc, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== NAV LINKS (как кнопки) ===== */
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-links a {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: transparent;
+  color: #cbd5f5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.nav-links a:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* ===== LANGUAGE SWITCH (единая плашка) ===== */
+.lang-switch {
+  display: flex;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.lang-switch button {
+  border: none;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #cbd5f5;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lang-switch button:hover {
+  background: #6366f1;
+  color: white;
+}
