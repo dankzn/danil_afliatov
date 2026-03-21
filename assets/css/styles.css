@@ -1049,3 +1049,18 @@ footer {
         font-size: 28px;
     }
 }
+.client-logo-img {
+    display: block;
+}
+
+.client-logo-img.error {
+    display: none;
+}
+
+.client-logo-fallback {
+    display: none;
+}
+
+.client-logo-img.error + .client-logo-fallback {
+    display: flex !important;
+}
