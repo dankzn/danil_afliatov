@@ -475,8 +475,6 @@ button:hover {
 .lang-menu div:hover {
   background: rgba(99,102,241,0.2);
 }
-
-/* hover открытие */
-.lang-dropdown:hover .lang-menu {
-  display: block;
+.lang-dropdown {
+  position: relative;
 }
