@@ -1,8 +1,9 @@
 {
-  "nav_home": "Inicio",
-  "nav_about": "Sobre mí",
-  "nav_projects": "Proyectos",
-  "nav_contact": "Contacto",
-  "hero_title": "Experto en RRHH y gestión de proyectos",
-  "hero_subtitle": "Construyo equipos. Escalo sistemas. Entrego resultados."
+    "nav_home": "Inicio",
+    "nav_about": "Sobre mí",
+    "nav_projects": "Proyectos",
+    "nav_contact": "Contacto",
+    "hero_title": "Experto en RRHH y gestión de proyectos",
+    "hero_subtitle": "Construyo equipos. Escalo sistemas. Entrego resultados.",
+    "about_title": "Sobre mí"
 }
