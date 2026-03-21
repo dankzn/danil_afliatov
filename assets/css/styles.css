@@ -706,8 +706,8 @@ footer {
 }
 
 .client-logo {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.05);
     display: flex;
@@ -716,7 +716,7 @@ footer {
     margin-bottom: 30px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 25px;
+    padding: 15px;
 }
 
 .client-logo-img {
@@ -728,13 +728,9 @@ footer {
     object-fit: contain;
 }
 
-.client-logo-img.error {
-    display: none;
-}
-
 .client-logo-fallback {
     display: none;
-    font-size: 64px;
+    font-size: 72px;
     font-weight: 800;
     background: linear-gradient(135deg, #a5b4fc, #6366f1);
     -webkit-background-clip: text;
