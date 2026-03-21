@@ -56,9 +56,13 @@ function changeLang(lang, event) {
 }
 
 /* закрытие при клике вне */
-document.addEventListener("click", () => {
-  const menu = document.getElementById("lang-menu");
-  if (menu) menu.style.display = "none";
+document.addEventListener("click", (event) => {
+  const dropdown = document.querySelector(".lang-dropdown");
+
+  if (!dropdown.contains(event.target)) {
+    const menu = document.getElementById("lang-menu");
+    if (menu) menu.style.display = "none";
+  }
 });
 
 /* загрузка */
