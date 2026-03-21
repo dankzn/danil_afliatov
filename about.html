@@ -8,18 +8,29 @@
 <body>
 
 <header>
-  <nav>
+ <nav>
 
-    <a href="index.html" class="logo">Danil Afliatov</a>
+  <!-- ЛОГО / ИМЯ -->
+  <a href="index.html" class="logo">
+  Danil Afliatov
+</a>
 
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </div>
+  <!-- МЕНЮ -->
+  <div class="nav-links">
+    <a href="index.html" data-i18n="nav_home"></a>
+    <a href="about.html" data-i18n="nav_about"></a>
+    <a href="projects.html" data-i18n="nav_projects"></a>
+    <a href="contact.html" data-i18n="nav_contact"></a>
+  </div>
 
-  </nav>
+  <!-- ЯЗЫК -->
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+    <button onclick="setLanguage('es')">ES</button>
+  </div>
+
+</nav>
 </header>
 
 <section class="container">
