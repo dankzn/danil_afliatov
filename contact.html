@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"> Danil Afliatov </a>
+            
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html" data-i18n="nav_home"></a>
+                    <a href="about.html" data-i18n="nav_about"></a>
+                    <a href="projects.html" data-i18n="nav_projects"></a>
+                    <a href="contact.html" data-i18n="nav_contact"></a>
+                </div>
+                
+                <div class="lang-dropdown">
+                    <button class="lang-btn" onclick="toggleLangMenu(event)">
+                        <span id="current-lang">EN</span> ▾
+                    </button>
+                    <div class="lang-menu" id="lang-menu">
+                        <div onclick="changeLang('en', event)">English</div>
+                        <div onclick="changeLang('ru', event)">Русский</div>
+                        <div onclick="changeLang('es', event)">Español</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-i18n="contact_title"></h1>
+            <p data-i18n="contact_subtitle"></p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Левая часть - Инфо -->
+                <div class="contact-info">
+                    <h2 data-i18n="contact_info_title"></h2>
+                    <p data-i18n="contact_info_text"></p>
+                    
+                    <div class="contact-links">
+                        <a href="mailto:danil@example.com" class="contact-link">
+                            <span class="icon">📧</span>
+                            <span>danil@example.com</span>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span class="icon">💼</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span class="icon">🐦</span>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span class="icon">📱</span>
+                            <span>Telegram</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Правая часть - Форма -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label data-i18n="form_name"></label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_email"></label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_message"></label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary" data-i18n="form_submit"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/i18n.js"></script>
+    <script>
+        // Обработка формы (демо)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Здесь можно добавить отправку на сервер
+            alert(`Thank you, ${name}! Your message has been sent.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
