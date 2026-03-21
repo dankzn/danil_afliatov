@@ -136,7 +136,7 @@ button:hover {
 
 /* кнопки */
 .hero-buttons {
-  margin-top: 40px;
+  justify-content: flex-start;
 }
 
 /* базовая кнопка */
