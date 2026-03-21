@@ -698,24 +698,18 @@ footer {
     text-align: center;
 }
 
-.client-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(99, 102, 241, 0.4);
-    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
-}
-
 .client-logo {
-    width: 120px;
-    height: 120px;
-    border-radius: 16px;
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
     background: rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 20px;
+    padding: 25px;
 }
 
 .client-logo img {
@@ -727,15 +721,28 @@ footer {
 }
 
 .client-logo-fallback {
-    font-size: 48px;
+    font-size: 64px;
     font-weight: 800;
     background: linear-gradient(135deg, #a5b4fc, #6366f1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     line-height: 1;
+}
+
+.client-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 500px;
 }
 .client-content h3 {
     font-size: 24px;
