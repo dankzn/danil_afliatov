@@ -1,5 +1,4 @@
 let clientData = null;
-let currentLang = localStorage.getItem('lang') || 'en';
 
 // Загрузка данных клиента
 async function loadClientData() {
@@ -8,7 +7,7 @@ async function loadClientData() {
         clientData = await response.json();
         renderClient();
     } catch (error) {
-        console.error('Error loading client data:', error);
+        console.error('Error loading client ', error);
     }
 }
 
@@ -16,21 +15,40 @@ async function loadClientData() {
 function renderClient() {
     if (!clientData) return;
     
-    const data = clientData[currentLang];
+    // ✅ Используем currentLang из i18n.js
+    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
+    const data = clientData[lang];
+    
+    if (!data) {
+        console.error('No translations for language:', lang);
+        return;
+    }
     
     // Логотип
     const logoImg = document.getElementById('client-logo');
     const logoFallback = document.getElementById('client-logo-fallback');
+    
     if (logoImg && clientData.logo) {
         logoImg.src = clientData.logo;
+        logoImg.onload = function() {
+            if (this.naturalWidth === 0) {
+                this.style.display = 'none';
+                if (logoFallback) {
+                    logoFallback.style.display = 'flex';
+                    logoFallback.textContent = clientData.logoFallback || 'CL';
+                }
+            } else {
+                this.style.display = 'block';
+                if (logoFallback) logoFallback.style.display = 'none';
+            }
+        };
         logoImg.onerror = function() {
             this.style.display = 'none';
-            if (logoFallback) logoFallback.style.display = 'flex';
+            if (logoFallback) {
+                logoFallback.style.display = 'flex';
+                logoFallback.textContent = clientData.logoFallback || 'CL';
+            }
         };
-    }
-    if (logoFallback) {
-        logoFallback.textContent = clientData.logoFallback || 'CL';
-        logoFallback.style.display = 'flex';
     }
     
     // Основная информация
@@ -89,9 +107,13 @@ function renderClient() {
 
 // Переключение языка
 function switchLang(lang) {
-    currentLang = lang;
+    // ✅ Обновляем глобальную переменную в i18n.js
+    if (typeof currentLang !== 'undefined') {
+        currentLang = lang;
+    }
     localStorage.setItem('lang', lang);
     
+    // Обновляем индикатор
     const currentLangEl = document.getElementById('current-lang');
     if (currentLangEl) currentLangEl.textContent = lang.toUpperCase();
     
@@ -99,20 +121,30 @@ function switchLang(lang) {
     const menu = document.getElementById('lang-menu');
     if (menu) menu.style.display = 'none';
     
-    // Перерисовываем
-    if (clientData) {
-        renderClient();
-    }
-    
-    // Обновляем статические переводы
+    // ✅ Переводим статические элементы (навигация, заголовки)
     if (typeof loadLanguage === 'function') {
         loadLanguage(lang);
+    }
+    
+    // ✅ Перерисовываем динамический контент клиента
+    if (clientData) {
+        renderClient();
     }
 }
 
 // Инициализация
 document.addEventListener('DOMContentLoaded', () => {
-    loadClientData();
+    // ✅ Сначала загружаем переводы интерфейса
+    const savedLang = localStorage.getItem('lang') || 'en';
+    
+    if (typeof loadLanguage === 'function') {
+        loadLanguage(savedLang);
+    }
+    
+    // Обновляем индикатор
     const currentLangEl = document.getElementById('current-lang');
-    if (currentLangEl) currentLangEl.textContent = currentLang.toUpperCase();
+    if (currentLangEl) currentLangEl.textContent = savedLang.toUpperCase();
+    
+    // ✅ Потом загружаем данные клиента
+    loadClientData();
 });
