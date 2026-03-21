@@ -1,17 +1,3 @@
-let currentLang = localStorage.getItem("lang") || "en";
-
-async function loadLanguage(lang) {
-  const response = await fetch(`locales/${lang}.json`);
-  const translations = await response.json();
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    el.textContent = translations[key];
-  });
-
-  localStorage.setItem("lang", lang);
-}
-
 function detectLanguage() {
   const saved = localStorage.getItem("lang");
   if (saved) return saved;
@@ -26,11 +12,35 @@ function detectLanguage() {
 
 let currentLang = detectLanguage();
 
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    loadLanguage(currentLang);
-  }, 50);
-});
+async function loadLanguage(lang) {
+  try {
+    const response = await fetch(`./locales/${lang}.json`);
+    const translations = await response.json();
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[key]) {
+        el.textContent = translations[key];
+      }
+    });
+
+    localStorage.setItem("lang", lang);
+  } catch (e) {
+    console.error("i18n error:", e);
+  }
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  loadLanguage(lang);
+
+  const current = document.getElementById("current-lang");
+  if (current) {
+    current.textContent = lang.toUpperCase();
+  }
+}
+
+/* DROPDOWN */
 function toggleLangMenu(event) {
   event.stopPropagation();
   const menu = document.getElementById("lang-menu");
@@ -39,12 +49,10 @@ function toggleLangMenu(event) {
 
 function changeLang(lang, event) {
   event.stopPropagation();
-
   setLanguage(lang);
 
-  document.getElementById("current-lang").textContent = lang.toUpperCase();
-
-  document.getElementById("lang-menu").style.display = "none";
+  const menu = document.getElementById("lang-menu");
+  if (menu) menu.style.display = "none";
 }
 
 /* закрытие при клике вне */
@@ -53,15 +61,7 @@ document.addEventListener("click", () => {
   if (menu) menu.style.display = "none";
 });
 
-function changeLang(lang) {
-  setLanguage(lang);
-
-  document.getElementById("current-lang").textContent = lang.toUpperCase();
-
-  document.getElementById("lang-menu").style.display = "none";
-}
-
-/* при загрузке */
+/* загрузка */
 document.addEventListener("DOMContentLoaded", () => {
   loadLanguage(currentLang);
 
