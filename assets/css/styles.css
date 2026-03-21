@@ -239,7 +239,7 @@ button:hover {
 
 /* левая часть */
 .hero-left {
-  text-align: left;
+  max-width: 600px;
 }
 
 /* усиливаем текст */
@@ -272,6 +272,7 @@ button:hover {
 .hero-right {
   display: flex;
   justify-content: center;
+  align-items: flex-start; /* ВАЖНО */
 }
 
 /* карточка */
