@@ -83,5 +83,24 @@
 </section>
 
     <script src="assets/js/i18n.js"></script>
+    <script>
+    // Обработка логотипов
+    document.querySelectorAll('.client-logo-img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.classList.add('error');
+        });
+        
+        img.addEventListener('load', function() {
+            this.classList.remove('error');
+        });
+        
+        // Если картинка уже загрузилась (из кэша)
+        if (img.complete) {
+            if (img.naturalWidth === 0) {
+                img.classList.add('error');
+            }
+        }
+    });
+</script>
 </body>
 </html>
