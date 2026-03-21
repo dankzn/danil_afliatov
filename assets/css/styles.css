@@ -306,7 +306,7 @@ button:hover {
 }
 
 .hero-image-wrapper:hover {
-  transform: rotate(0deg) scale(1.03);
+  transform: scale(1.03);
 }
 
 /* glow behind */
