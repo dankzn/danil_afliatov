@@ -696,6 +696,13 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    min-height: 520px;
+}
+
+.client-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
 }
 
 .client-logo {
@@ -712,7 +719,8 @@ footer {
     padding: 25px;
 }
 
-.client-logo img {
+.client-logo-img {
+    display: block;
     max-width: 100%;
     max-height: 100%;
     width: auto;
@@ -720,30 +728,33 @@ footer {
     object-fit: contain;
 }
 
+.client-logo-img.error {
+    display: none;
+}
+
 .client-logo-fallback {
+    display: none;
     font-size: 64px;
     font-weight: 800;
     background: linear-gradient(135deg, #a5b4fc, #6366f1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: none;
     align-items: center;
     justify-content: center;
     line-height: 1;
 }
 
-.client-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 40px 30px;
-    transition: all 0.3s ease;
+.client-logo-img.error + .client-logo-fallback {
+    display: flex !important;
+}
+
+.client-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    min-height: 500px;
+    width: 100%;
 }
+
 .client-content h3 {
     font-size: 24px;
     font-weight: 700;
@@ -811,8 +822,8 @@ footer {
 }
 
 .case-logo {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.05);
     display: flex;
@@ -820,21 +831,24 @@ footer {
     justify-content: center;
     flex-shrink: 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
 }
 
 .case-logo img {
-    width: 70%;
-    height: 70%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
 }
 
-.case-logo-fallback.large {
-    font-size: 40px;
+.client-logo-fallback.large {
+    display: none;
+    font-size: 56px;
     font-weight: 800;
     background: linear-gradient(135deg, #a5b4fc, #6366f1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: flex;
 }
 
 .case-info h1 {
@@ -1028,6 +1042,17 @@ footer {
 
     .client-card {
         padding: 30px 20px;
+        min-height: auto;
+    }
+
+    .client-logo {
+        width: 140px;
+        height: 140px;
+        padding: 20px;
+    }
+
+    .client-logo-fallback {
+        font-size: 48px;
     }
 
     .case-header {
@@ -1035,7 +1060,6 @@ footer {
         text-align: center;
     }
 
-    .case-tags,
     .case-tags {
         justify-content: center;
     }
@@ -1055,19 +1079,4 @@ footer {
     .case-info h1 {
         font-size: 28px;
     }
-}
-.client-logo-img {
-    display: block;
-}
-
-.client-logo-img.error {
-    display: none;
-}
-
-.client-logo-fallback {
-    display: none;
-}
-
-.client-logo-img.error + .client-logo-fallback {
-    display: flex !important;
 }
