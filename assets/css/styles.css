@@ -443,11 +443,6 @@ button:hover {
   line-height: 1.5;
 }
 /* ===== LANG DROPDOWN ===== */
-
-.lang-dropdown {
-  position: relative;
-}
-
 .lang-btn {
   padding: 8px 14px;
   border-radius: 8px;
@@ -467,6 +462,7 @@ button:hover {
   border-radius: 10px;
   overflow: hidden;
   display: none;
+  min-width: 140px; /* ВАЖНО */
 }
 
 /* пункты */
