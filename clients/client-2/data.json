@@ -1,0 +1,102 @@
+{
+    "logo": "../../assets/clients/client-2-logo.png",
+    "logoFallback": "FH",
+    "duration": "4 months engagement • 2023",
+    "tags": ["Recruitment", "Process", "FinTech"],
+    "results": [
+        { "number": "5x", "labelKey": "result_1" },
+        { "number": "-70%", "labelKey": "result_2" },
+        { "number": "98%", "labelKey": "result_3" },
+        { "number": "30+", "labelKey": "result_4" }
+    ],
+    "en": {
+        "name": "FinanceHub Ltd",
+        "request": "Build recruitment process from scratch for rapid growth",
+        "challenge": "FinanceHub was scaling rapidly but had no structured hiring process. They were missing deadlines and losing top candidates to competitors.",
+        "solutions": [
+            {
+                "icon": "",
+                "title": "Process Design",
+                "desc": "Created end-to-end recruitment workflow with clear stages and ownership"
+            },
+            {
+                "icon": "⚡",
+                "title": "Speed Optimization",
+                "desc": "Reduced time-to-hire from 45 days to 14 days"
+            },
+            {
+                "icon": "🎯",
+                "title": "Quality Focus",
+                "desc": "Implemented structured interviews and assessment framework"
+            }
+        ],
+        "result_1": "Faster hiring",
+        "result_2": "Time-to-hire reduced",
+        "result_3": "Offer acceptance rate",
+        "result_4": "Hires completed",
+        "testimonial": "Danil built our entire recruitment infrastructure. The difference is night and day - we now attract and close top talent consistently.",
+        "testimonialAuthor": "Sarah Mitchell",
+        "testimonialPosition": "HR Director, FinanceHub Ltd",
+        "ctaTitle": "Ready to scale your team?"
+    },
+    "ru": {
+        "name": "FinanceHub Ltd",
+        "request": "Построить процесс найма с нуля для быстрого роста",
+        "challenge": "FinanceHub быстро росла, но не имела структурированного процесса найма. Они срывали сроки и теряли лучших кандидатов конкурентам.",
+        "solutions": [
+            {
+                "icon": "📋",
+                "title": "Дизайн процесса",
+                "desc": "Создал сквозной рабочий процесс рекрутмента с чёткими этапами"
+            },
+            {
+                "icon": "⚡",
+                "title": "Оптимизация скорости",
+                "desc": "Сократил время найма с 45 до 14 дней"
+            },
+            {
+                "icon": "🎯",
+                "title": "Фокус на качестве",
+                "desc": "Внедрил структурированные интервью и систему оценки"
+            }
+        ],
+        "result_1": "Найм ускорен",
+        "result_2": "Время найма сокращено",
+        "result_3": "Принятие офферов",
+        "result_4": "Завершено наймов",
+        "testimonial": "Данил построил всю нашу инфраструктуру найма. Разница как небо и земля — теперь мы стабильно привлекаем и закрываем топ-таланты.",
+        "testimonialAuthor": "Сара Митчелл",
+        "testimonialPosition": "HR Director, FinanceHub Ltd",
+        "ctaTitle": "Готовы масштабировать команду?"
+    },
+    "es": {
+        "name": "FinanceHub Ltd",
+        "request": "Construir proceso de reclutamiento desde cero para crecimiento rápido",
+        "challenge": "FinanceHub crecía rápidamente pero no tenía proceso de contratación estructurado. Perdían plazos y candidatos frente a competidores.",
+        "solutions": [
+            {
+                "icon": "📋",
+                "title": "Diseño de Proceso",
+                "desc": "Creé flujo de reclutamiento completo con etapas claras"
+            },
+            {
+                "icon": "⚡",
+                "title": "Optimización de Velocidad",
+                "desc": "Reduje tiempo de contratación de 45 a 14 días"
+            },
+            {
+                "icon": "🎯",
+                "title": "Enfoque en Calidad",
+                "desc": "Implementé entrevistas estructuradas y marco de evaluación"
+            }
+        ],
+        "result_1": "Contratación más rápida",
+        "result_2": "Tiempo de contratación reducido",
+        "result_3": "Tasa de aceptación de ofertas",
+        "result_4": "Contrataciones completadas",
+        "testimonial": "Danil construyó toda nuestra infraestructura de reclutamiento. La diferencia es abismal - ahora atraemos y cerramos talento top consistentemente.",
+        "testimonialAuthor": "Sarah Mitchell",
+        "testimonialPosition": "HR Director, FinanceHub Ltd",
+        "ctaTitle": "¿Listo para escalar tu equipo?"
+    }
+}
