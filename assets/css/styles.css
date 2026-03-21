@@ -240,6 +240,7 @@ button:hover {
 /* левая часть */
 .hero-left {
   max-width: 600px;
+  text-align: left;
 }
 
 /* усиливаем текст */
