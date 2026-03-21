@@ -445,3 +445,45 @@ button:hover {
   font-size: 14px;
   line-height: 1.5;
 }
+/* ===== LANG DROPDOWN ===== */
+
+.lang-dropdown {
+  position: relative;
+}
+
+.lang-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #cbd5f5;
+  cursor: pointer;
+}
+
+/* меню */
+.lang-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: rgba(2,6,23,0.95);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+}
+
+/* пункты */
+.lang-menu div {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #cbd5f5;
+}
+
+.lang-menu div:hover {
+  background: rgba(99,102,241,0.2);
+}
+
+/* hover открытие */
+.lang-dropdown:hover .lang-menu {
+  display: block;
+}
