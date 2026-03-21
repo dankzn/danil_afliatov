@@ -12,10 +12,19 @@ async function loadLanguage(lang) {
   localStorage.setItem("lang", lang);
 }
 
-function setLanguage(lang) {
-  currentLang = lang;
-  loadLanguage(lang);
+function detectLanguage() {
+  const saved = localStorage.getItem("lang");
+  if (saved) return saved;
+
+  const browserLang = navigator.language || navigator.userLanguage;
+
+  if (browserLang.startsWith("ru")) return "ru";
+  if (browserLang.startsWith("es")) return "es";
+
+  return "en";
 }
+
+let currentLang = detectLanguage();
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
