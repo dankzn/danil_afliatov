@@ -15,22 +15,41 @@ async function loadClientData() {
 function renderClient() {
     if (!clientData) return;
     
-    const lang = typeof currentLang !== 'undefined' ? currentLang : 'en';
+    // Получаем текущий язык из i18n.js или используем 'en'
+    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
     const data = clientData[lang];
     
     // Логотип
     const logoImg = document.getElementById('client-logo');
     const logoFallback = document.getElementById('client-logo-fallback');
+    
     if (logoImg && clientData.logo) {
         logoImg.src = clientData.logo;
+        logoImg.style.display = 'block';
+        
+        logoImg.onload = function() {
+            if (this.naturalWidth === 0) {
+                this.style.display = 'none';
+                if (logoFallback) {
+                    logoFallback.style.display = 'flex';
+                    logoFallback.textContent = clientData.logoFallback || 'CL';
+                }
+            } else {
+                this.style.display = 'block';
+                if (logoFallback) logoFallback.style.display = 'none';
+            }
+        };
+        
         logoImg.onerror = function() {
             this.style.display = 'none';
-            if (logoFallback) logoFallback.style.display = 'flex';
+            if (logoFallback) {
+                logoFallback.style.display = 'flex';
+                logoFallback.textContent = clientData.logoFallback || 'CL';
+            }
         };
-    }
-    if (logoFallback) {
-        logoFallback.textContent = clientData.logoFallback || 'CL';
+    } else if (logoFallback) {
         logoFallback.style.display = 'flex';
+        logoFallback.textContent = clientData.logoFallback || 'CL';
     }
     
     // Основная информация
@@ -89,7 +108,10 @@ function renderClient() {
 
 // Переключение языка
 function switchLang(lang) {
-    currentLang = lang;
+    // Обновляем глобальную переменную
+    if (typeof currentLang !== 'undefined') {
+        currentLang = lang;
+    }
     localStorage.setItem('lang', lang);
     
     const currentLangEl = document.getElementById('current-lang');
@@ -114,5 +136,8 @@ function switchLang(lang) {
 document.addEventListener('DOMContentLoaded', () => {
     loadClientData();
     const currentLangEl = document.getElementById('current-lang');
-    if (currentLangEl) currentLangEl.textContent = currentLang.toUpperCase();
+    if (currentLangEl) {
+        const savedLang = localStorage.getItem('lang') || 'en';
+        currentLangEl.textContent = savedLang.toUpperCase();
+    }
 });
