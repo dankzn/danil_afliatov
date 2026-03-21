@@ -1,0 +1,103 @@
+{
+    "id": "client-1",
+    "logo": "../../assets/clients/client-1-logo.png",
+    "logoFallback": "TC",
+    "duration": "6 months engagement • 2023",
+    "tags": ["HR Strategy", "Scaling", "IT"],
+    "results": [
+        { "number": "+40%", "labelKey": "result_1" },
+        { "number": "3x", "labelKey": "result_2" },
+        { "number": "-60%", "labelKey": "result_3" },
+        { "number": "95%", "labelKey": "result_4" }
+    ],
+    "en": {
+        "name": "TechCorp International",
+        "request": "Scale engineering team from 20 to 100+ while maintaining culture",
+        "challenge": "TechCorp needed to triple their engineering team in 6 months without compromising on quality or company culture. They were losing candidates to competitors and had no structured hiring process.",
+        "solutions": [
+            {
+                "icon": "🎯",
+                "title": "Hiring Pipeline",
+                "desc": "Designed end-to-end recruitment funnel with automated screening"
+            },
+            {
+                "icon": "📊",
+                "title": "Employer Branding",
+                "desc": "Created compelling employer value proposition and content strategy"
+            },
+            {
+                "icon": "🔄",
+                "title": "Onboarding System",
+                "desc": "Built 30-day onboarding program with clear milestones"
+            }
+        ],
+        "result_1": "Team growth achieved",
+        "result_2": "Faster hiring",
+        "result_3": "Time-to-hire reduced",
+        "result_4": "New hire retention",
+        "testimonial": "Danil transformed our entire hiring operation. We went from struggling to fill roles to having a pipeline of qualified candidates. His systematic approach made all the difference.",
+        "testimonialAuthor": "Alex Johnson",
+        "testimonialPosition": "CEO, TechCorp International",
+        "ctaTitle": "Want similar results for your company?"
+    },
+    "ru": {
+        "name": "TechCorp International",
+        "request": "Масштабировать инженерную команду с 20 до 100+ с сохранением культуры",
+        "challenge": "TechCorp нужно было утроить инженерную команду за 6 месяцев без потери качества и корпоративной культуры.",
+        "solutions": [
+            {
+                "icon": "🎯",
+                "title": "Воронка найма",
+                "desc": "Разработал сквозной процесс рекрутмента с автоматизированным скринингом"
+            },
+            {
+                "icon": "📊",
+                "title": "Бренд работодателя",
+                "desc": "Создал ценностное предложение и контент-стратегию"
+            },
+            {
+                "icon": "🔄",
+                "title": "Система онбординга",
+                "desc": "Построил 30-дневную программу адаптации с чёткими вехами"
+            }
+        ],
+        "result_1": "Рост команды достигнут",
+        "result_2": "Найм ускорен",
+        "result_3": "Время найма сокращено",
+        "result_4": "Удержание новых сотрудников",
+        "testimonial": "Данил полностью трансформировал нашу операцию найма.",
+        "testimonialAuthor": "Алекс Джонсон",
+        "testimonialPosition": "CEO, TechCorp International",
+        "ctaTitle": "Хотите похожие результаты для вашей компании?"
+    },
+    "es": {
+        "name": "TechCorp International",
+        "request": "Escalar equipo de ingeniería de 20 a 100+ manteniendo la cultura",
+        "challenge": "TechCorp necesitaba triplicar su equipo de ingeniería en 6 meses.",
+        "solutions": [
+            {
+                "icon": "🎯",
+                "title": "Embudo de Contratación",
+                "desc": "Diseñé funnel de reclutamiento con screening automatizado"
+            },
+            {
+                "icon": "📊",
+                "title": "Marca Empleadora",
+                "desc": "Creé propuesta de valor y estrategia de contenido"
+            },
+            {
+                "icon": "🔄",
+                "title": "Sistema de Onboarding",
+                "desc": "Construí programa de 30 días con hitos claros"
+            }
+        ],
+        "result_1": "Crecimiento del equipo logrado",
+        "result_2": "Contratación más rápida",
+        "result_3": "Tiempo de contratación reducido",
+        "result_4": "Retención de nuevos empleados",
+        "testimonial": "Danil transformó toda nuestra operación de contratación.",
+        "testimonialAuthor": "Alex Johnson",
+        "testimonialPosition": "CEO, TechCorp International",
+        "ctaTitle": "¿Quieres resultados similares para tu empresa?"
+    }
+}
