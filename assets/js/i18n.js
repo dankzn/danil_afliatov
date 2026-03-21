@@ -20,3 +20,25 @@ function setLanguage(lang) {
 document.addEventListener("DOMContentLoaded", () => {
   loadLanguage(currentLang);
 });
+function toggleLangMenu() {
+  const menu = document.getElementById("lang-menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+function changeLang(lang) {
+  setLanguage(lang);
+
+  document.getElementById("current-lang").textContent = lang.toUpperCase();
+
+  document.getElementById("lang-menu").style.display = "none";
+}
+
+/* при загрузке */
+document.addEventListener("DOMContentLoaded", () => {
+  loadLanguage(currentLang);
+
+  const current = document.getElementById("current-lang");
+  if (current) {
+    current.textContent = currentLang.toUpperCase();
+  }
+});
