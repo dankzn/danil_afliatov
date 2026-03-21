@@ -15,7 +15,8 @@ async function loadClientData() {
 function renderClient() {
     if (!clientData) return;
     
-    const data = clientData[currentLang];
+    const lang = typeof currentLang !== 'undefined' ? currentLang : 'en';
+    const data = clientData[lang];
     
     // Логотип
     const logoImg = document.getElementById('client-logo');
