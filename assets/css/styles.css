@@ -16,21 +16,18 @@ body {
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 20px 60px;
   backdrop-filter: blur(12px);
   background: rgba(2, 6, 23, 0.7);
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-/* ссылки */
-nav a {
-  color: #cbd5f5;
-  margin-right: 25px;
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  transition: 0.3s;
+/* правая часть */
+.nav-links {
+  display: flex;
+  gap: 10px;
+  margin-left: auto; /* ВАЖНО */
+  margin-right: 20px;
 }
 
 /* hover underline */
