@@ -35,18 +35,16 @@
         <div class="container">
             <a href="../../clients.html" class="back-link">← <span data-i18n="back_to_clients">Back to Clients</span></a>
             <div class="case-header">
-                <div class="case-logo">
-    <img id="client-logo" src="" alt="Client"
-         onload="this.style.display='block'; document.getElementById('client-logo-fallback').style.display='none'"
-         onerror="this.style.display='none'; document.getElementById('client-logo-fallback').style.display='flex'">
-    <div id="client-logo-fallback" class="client-logo-fallback large" style="display: none;"></div>
+    <div class="case-logo">
+        <img id="client-logo" src="" alt="Client">
+        <div id="client-logo-fallback" class="client-logo-fallback large"></div>
+    </div>
+    <div class="case-info">
+        <h1 id="client-name"></h1>
+        <p class="case-duration" id="client-duration"></p>
+        <div class="case-tags" id="client-tags"></div>
+    </div>
 </div>
-                <div class="case-info">
-                    <h1 id="client-name"></h1>
-                    <p class="case-duration" id="client-duration"></p>
-                    <div class="case-tags" id="client-tags"></div>
-                </div>
-            </div>
         </div>
     </section>
 
