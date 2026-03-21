@@ -5,5 +5,15 @@
     "nav_contact": "Contact",
     "hero_title": "HR & Project Management Expert",
     "hero_subtitle": "Building teams. Scaling systems. Delivering results.",
-    "about_title": "About Me"
+    "about_title": "About Me",
+    "projects_title": "My Projects",
+    "projects_subtitle": "A selection of initiatives I've led and delivered",
+    "contact_title": "Get In Touch",
+    "contact_subtitle": "Let's discuss how I can help your team grow",
+    "contact_info_title": "Contact Information",
+    "contact_info_text": "I'm always open to discussing new opportunities and interesting projects.",
+    "form_name": "Your Name",
+    "form_email": "Your Email",
+    "form_message": "Your Message",
+    "form_submit": "Send Message"
 }
