@@ -26,14 +26,14 @@
   <!-- ЯЗЫК -->
   <div class="lang-dropdown">
 
-  <button class="lang-btn" onclick="toggleLangMenu()">
+  <button class="lang-btn" onclick="toggleLangMenu(event)">
     <span id="current-lang">EN</span> ▾
   </button>
 
   <div class="lang-menu" id="lang-menu">
-    <div onclick="changeLang('en')">English</div>
-    <div onclick="changeLang('ru')">Русский</div>
-    <div onclick="changeLang('es')">Español</div>
+    <div onclick="changeLang('en', event)">English</div>
+<div onclick="changeLang('ru', event)">Русский</div>
+<div onclick="changeLang('es', event)">Español</div>
   </div>
 
 </div>
