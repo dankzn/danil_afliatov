@@ -815,11 +815,14 @@ footer {
     gap: 30px;
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    z-index: 10;
 }
 
 .case-logo {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.05);
     display: flex;
@@ -827,9 +830,19 @@ footer {
     justify-content: center;
     flex-shrink: 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px;
+    overflow: hidden;
+}
+.case-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
+.case-info {
+    flex: 1;
+    min-width: 0;
+}
 .client-logo-fallback.large {
     display: none;
     font-size: 64px;
@@ -846,6 +859,7 @@ footer {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 8px;
+    line-height: 1.2;
 }
 
 .case-duration {
