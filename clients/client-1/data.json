@@ -12,8 +12,8 @@
     ],
     "en": {
         "name": "GMCS VerEx (General Management Consulting Services)",
-        "request": "Scale engineering team from 20 to 100+ while maintaining culture",
-        "challenge": "TechCorp needed to triple their engineering team in 6 months without compromising on quality or company culture. They were losing candidates to competitors and had no structured hiring process.",
+        "request": "Fully migrated all business processes from the Axapta system to the WebSoft HCM platform. The objective was to completely phase out Axapta for internal use across the company and its employees. This required transferring all key processes to the HCM platform, including employee timesheets, the full organizational structure, all employee-related document workflows, and other internal operations",
+        "challenge": "Within a very tight timeframe, all processes were successfully migrated to GMCS VerEx without compromising quality. In parallel, the company’s organizational structure was optimized, and a 360-degree employee performance evaluation system was implemented",
         "solutions": [
             {
                 "icon": "🎯",
@@ -72,8 +72,8 @@
     },
     "es": {
         "name": "GMCS VerEx (General Management Consulting Services)",
-        "request": "Escalar equipo de ingeniería de 20 a 100+ manteniendo la cultura",
-        "challenge": "TechCorp necesitaba triplicar su equipo de ingeniería en 6 meses.",
+        "request": "Se llevó a cabo la migración completa de todos los procesos empresariales desde el sistema Axapta a la plataforma WebSoft HCM. El objetivo era eliminar por completo el uso de Axapta dentro de la empresa y entre sus empleados. Para ello, fue necesario transferir todos los procesos clave a la plataforma HCM, incluyendo el registro de horas de los empleados, la estructura organizativa completa, todos los flujos documentales relacionados con el personal y otras operaciones internas",
+        "challenge": "En un plazo muy ajustado, todos los procesos fueron migrados con éxito a GMCS VerEx sin comprometer la calidad. Paralelamente, se optimizó la estructura organizativa de la empresa y se implementó un sistema de evaluación del desempeño del personal de 360 grados",
         "solutions": [
             {
                 "icon": "🎯",
