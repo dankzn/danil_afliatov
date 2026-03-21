@@ -15,9 +15,14 @@ async function loadClientData() {
 function renderClient() {
     if (!clientData) return;
     
-    // Получаем текущий язык из i18n.js или используем 'en'
+    // Получаем текущий язык (из i18n.js или по умолчанию 'en')
     const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
     const data = clientData[lang];
+    
+    if (!data) {
+        console.error('No translations for language:', lang);
+        return;
+    }
     
     // Логотип
     const logoImg = document.getElementById('client-logo');
@@ -25,8 +30,6 @@ function renderClient() {
     
     if (logoImg && clientData.logo) {
         logoImg.src = clientData.logo;
-        logoImg.style.display = 'block';
-        
         logoImg.onload = function() {
             if (this.naturalWidth === 0) {
                 this.style.display = 'none';
@@ -39,7 +42,6 @@ function renderClient() {
                 if (logoFallback) logoFallback.style.display = 'none';
             }
         };
-        
         logoImg.onerror = function() {
             this.style.display = 'none';
             if (logoFallback) {
@@ -47,9 +49,6 @@ function renderClient() {
                 logoFallback.textContent = clientData.logoFallback || 'CL';
             }
         };
-    } else if (logoFallback) {
-        logoFallback.style.display = 'flex';
-        logoFallback.textContent = clientData.logoFallback || 'CL';
     }
     
     // Основная информация
@@ -114,6 +113,7 @@ function switchLang(lang) {
     }
     localStorage.setItem('lang', lang);
     
+    // Обновляем индикатор языка
     const currentLangEl = document.getElementById('current-lang');
     if (currentLangEl) currentLangEl.textContent = lang.toUpperCase();
     
@@ -121,23 +121,30 @@ function switchLang(lang) {
     const menu = document.getElementById('lang-menu');
     if (menu) menu.style.display = 'none';
     
-    // Перерисовываем
-    if (clientData) {
-        renderClient();
-    }
-    
-    // Обновляем статические переводы
+    // Переводим статические элементы (из i18n.js)
     if (typeof loadLanguage === 'function') {
         loadLanguage(lang);
     }
+    
+    // Перерисовываем динамический контент клиента
+    if (clientData) {
+        renderClient();
+    }
 }
 
-// Инициализация
+// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
-    loadClientData();
-    const currentLangEl = document.getElementById('current-lang');
-    if (currentLangEl) {
-        const savedLang = localStorage.getItem('lang') || 'en';
-        currentLangEl.textContent = savedLang.toUpperCase();
+    // Сначала загружаем переводы интерфейса
+    const savedLang = localStorage.getItem('lang') || 'en';
+    
+    if (typeof loadLanguage === 'function') {
+        loadLanguage(savedLang);
     }
+    
+    // Обновляем индикатор языка
+    const currentLangEl = document.getElementById('current-lang');
+    if (currentLangEl) currentLangEl.textContent = savedLang.toUpperCase();
+    
+    // Потом загружаем данные клиента
+    loadClientData();
 });
