@@ -22,10 +22,27 @@ document.addEventListener("DOMContentLoaded", () => {
     loadLanguage(currentLang);
   }, 50);
 });
-function toggleLangMenu() {
+function toggleLangMenu(event) {
+  event.stopPropagation();
   const menu = document.getElementById("lang-menu");
   menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
+
+function changeLang(lang, event) {
+  event.stopPropagation();
+
+  setLanguage(lang);
+
+  document.getElementById("current-lang").textContent = lang.toUpperCase();
+
+  document.getElementById("lang-menu").style.display = "none";
+}
+
+/* закрытие при клике вне */
+document.addEventListener("click", () => {
+  const menu = document.getElementById("lang-menu");
+  if (menu) menu.style.display = "none";
+});
 
 function changeLang(lang) {
   setLanguage(lang);
