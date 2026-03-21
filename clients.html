@@ -82,24 +82,29 @@
     </div>
 </section>
 
-    <script src="assets/js/i18n.js"></script>
-    <script>
-    // Обработка логотипов
-    document.querySelectorAll('.client-logo-img').forEach(img => {
-        img.addEventListener('error', function() {
-            this.classList.add('error');
-        });
-        
-        img.addEventListener('load', function() {
-            this.classList.remove('error');
-        });
-        
-        // Если картинка уже загрузилась (из кэша)
-        if (img.complete) {
-            if (img.naturalWidth === 0) {
+<script>
+    // Обработка логотипов клиентов
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.client-logo-img').forEach(function(img) {
+            // Если картинка уже загрузилась (из кэша)
+            if (img.complete && img.naturalWidth === 0) {
                 img.classList.add('error');
             }
-        }
+            
+            // Если картинка загрузилась успешно
+            img.addEventListener('load', function() {
+                if (this.naturalWidth === 0) {
+                    this.classList.add('error');
+                } else {
+                    this.classList.remove('error');
+                }
+            });
+            
+            // Если ошибка загрузки
+            img.addEventListener('error', function() {
+                this.classList.add('error');
+            });
+        });
     });
 </script>
 </body>
