@@ -1,8 +1,9 @@
 {
-  "nav_home": "Home",
-  "nav_about": "About",
-  "nav_projects": "Projects",
-  "nav_contact": "Contact",
-  "hero_title": "HR & Project Management Expert",
-  "hero_subtitle": "Building teams. Scaling systems. Delivering results."
+    "nav_home": "Home",
+    "nav_about": "About",
+    "nav_projects": "Projects",
+    "nav_contact": "Contact",
+    "hero_title": "HR & Project Management Expert",
+    "hero_subtitle": "Building teams. Scaling systems. Delivering results.",
+    "about_title": "About Me"
 }
