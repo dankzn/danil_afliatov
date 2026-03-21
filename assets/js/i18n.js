@@ -1,3 +1,6 @@
+// Глобальная переменная языка
+let currentLang = 'en';
+
 function detectLanguage() { 
     const saved = localStorage.getItem("lang"); 
     if (saved) return saved; 
@@ -7,11 +10,11 @@ function detectLanguage() {
     return "en"; 
 } 
 
-let currentLang = detectLanguage(); 
+// Инициализируем при загрузке модуля
+currentLang = detectLanguage();
 
 async function loadLanguage(lang) { 
     try { 
-        // ИСПРАВЛЕНО: добавлены обратные кавычки ` `
         const response = await fetch(`./locales/${lang}.json`); 
         const translations = await response.json(); 
         
@@ -22,7 +25,8 @@ async function loadLanguage(lang) {
             } 
         }); 
         
-        localStorage.setItem("lang", lang); 
+        localStorage.setItem("lang", lang);
+        currentLang = lang; // ✅ ВАЖНО: обновляем глобальную переменную!
     } catch (e) { 
         console.error("i18n error:", e); 
     } 
@@ -41,7 +45,6 @@ function setLanguage(lang) {
 function toggleLangMenu(event) { 
     event.stopPropagation(); 
     const menu = document.getElementById("lang-menu"); 
-    // Переключаем видимость
     if (menu.style.display === "block") {
         menu.style.display = "none";
     } else {
@@ -62,7 +65,7 @@ document.addEventListener("click", () => {
     if (menu) menu.style.display = "none"; 
 }); 
 
-/* загрузка */
+/* загрузка при старте */
 document.addEventListener("DOMContentLoaded", () => { 
     loadLanguage(currentLang); 
     const current = document.getElementById("current-lang"); 
