@@ -1,50 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>About</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"> Danil Afliatov </a>
+            
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html" data-i18n="nav_home"></a>
+                    <a href="about.html" data-i18n="nav_about"></a>
+                    <a href="projects.html" data-i18n="nav_projects"></a>
+                    <a href="contact.html" data-i18n="nav_contact"></a>
+                </div>
+                
+                <div class="lang-dropdown">
+                    <button class="lang-btn" onclick="toggleLangMenu(event)">
+                        <span id="current-lang">EN</span> ▾
+                    </button>
+                    <div class="lang-menu" id="lang-menu">
+                        <div onclick="changeLang('en', event)">English</div>
+                        <div onclick="changeLang('ru', event)">Русский</div>
+                        <div onclick="changeLang('es', event)">Español</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<header>
-<nav>
+    <section class="container">
+        <h1 data-i18n="about_title"></h1>
+        <p class="about-text">This page will contain full professional background.</p>
+        
+        <!-- Пример контента, чтобы страница не была пустой -->
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Experience</h3>
+                <p>7+ years in HR and Management.</p>
+            </div>
+            <div class="about-card">
+                <h3>Education</h3>
+                <p>Master's in Business Administration.</p>
+            </div>
+            <div class="about-card">
+                <h3>Location</h3>
+                <p>Remote / Worldwide.</p>
+            </div>
+        </div>
+    </section>
 
-  <a href="index.html" class="logo">
-    Danil Afliatov
-  </a>
-
-  <div class="nav-links">
-    <a href="index.html" data-i18n="nav_home"></a>
-    <a href="about.html" data-i18n="nav_about"></a>
-    <a href="projects.html" data-i18n="nav_projects"></a>
-    <a href="contact.html" data-i18n="nav_contact"></a>
-  </div>
-
-  <div class="lang-dropdown">
-
-    <button class="lang-btn" onclick="toggleLangMenu(event)">
-      <span id="current-lang">EN</span> ▾
-    </button>
-
-    <div class="lang-menu" id="lang-menu">
-      <div onclick="changeLang('en', event)">English</div>
-      <div onclick="changeLang('ru', event)">Русский</div>
-      <div onclick="changeLang('es', event)">Español</div>
-    </div>
-
-  </div>
-
-</nav>
-</header>
-
-<section class="container">
-  <h1 data-i18n="about_title"></h1>
-  <p>This page will contain full professional background.</p>
-</section>
-
-<script src="assets/js/i18n.js"></script>
-
+    <script src="assets/js/i18n.js"></script>
 </body>
 </html>
