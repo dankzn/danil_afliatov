@@ -400,3 +400,48 @@ button:hover {
   font-size: 14px;
   color: #94a3b8;
 }
+/* ===== CASES ===== */
+
+.cases {
+  padding: 100px 20px;
+}
+
+.cases h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+/* grid */
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* карточки */
+.case-card {
+  padding: 30px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(99,102,241,0.1), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s;
+}
+
+.case-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99,102,241,0.5);
+}
+
+/* цифры */
+.case-card h3 {
+  font-size: 36px;
+  color: #a5b4fc;
+  margin-bottom: 10px;
+}
+
+/* текст */
+.case-card p {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.5;
+}
