@@ -1,6 +1,22 @@
 // Глобальная переменная языка
 let currentLang = 'en';
 
+// Определяем базовый путь к папке locales в зависимости от текущей страницы
+function getLocalesBasePath() {
+    const path = window.location.pathname;
+    
+    // Если мы в папке клиента: /clients/client-1/
+    if (path.includes('/clients/client-')) {
+        return '../../locales/';
+    }
+    // Если мы в папке clients: /clients/
+    if (path.includes('/clients/')) {
+        return '../locales/';
+    }
+    // Если мы в корне сайта
+    return './locales/';
+}
+
 function detectLanguage() { 
     const saved = localStorage.getItem("lang"); 
     if (saved) return saved; 
@@ -10,12 +26,19 @@ function detectLanguage() {
     return "en"; 
 } 
 
-// Инициализируем при загрузке модуля
+// Инициализируем при загрузке
 currentLang = detectLanguage();
 
 async function loadLanguage(lang) { 
     try { 
-        const response = await fetch(`./locales/${lang}.json`); 
+        // ✅ Используем умный путь вместо ./locales/
+        const basePath = getLocalesBasePath();
+        const response = await fetch(`${basePath}${lang}.json`); 
+        
+        if (!response.ok) {
+            throw new Error(`Failed to load ${lang}.json: ${response.status}`);
+        }
+        
         const translations = await response.json(); 
         
         document.querySelectorAll("[data-i18n]").forEach(el => { 
@@ -26,7 +49,7 @@ async function loadLanguage(lang) {
         }); 
         
         localStorage.setItem("lang", lang);
-        currentLang = lang; // ✅ ВАЖНО: обновляем глобальную переменную!
+        currentLang = lang; // ✅ Обновляем глобальную переменную
     } catch (e) { 
         console.error("i18n error:", e); 
     } 
