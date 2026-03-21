@@ -18,7 +18,9 @@ function setLanguage(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadLanguage(currentLang);
+  setTimeout(() => {
+    loadLanguage(currentLang);
+  }, 50);
 });
 function toggleLangMenu() {
   const menu = document.getElementById("lang-menu");
