@@ -302,7 +302,6 @@ button:hover {
   height: 420px;
   border-radius: 24px;
   overflow: hidden;
-  transform: rotate(-2deg);
   transition: 0.4s;
 }
 
