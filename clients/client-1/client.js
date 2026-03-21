@@ -7,7 +7,7 @@ async function loadClientData() {
         clientData = await response.json();
         renderClient();
     } catch (error) {
-        console.error('Error loading client data:', error);
+        console.error('Error loading client ', error);
     }
 }
 
@@ -15,7 +15,7 @@ async function loadClientData() {
 function renderClient() {
     if (!clientData) return;
     
-    // Получаем текущий язык (из i18n.js или по умолчанию 'en')
+    // ✅ Используем currentLang из i18n.js
     const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
     const data = clientData[lang];
     
@@ -107,13 +107,13 @@ function renderClient() {
 
 // Переключение языка
 function switchLang(lang) {
-    // Обновляем глобальную переменную
+    // ✅ Обновляем глобальную переменную в i18n.js
     if (typeof currentLang !== 'undefined') {
         currentLang = lang;
     }
     localStorage.setItem('lang', lang);
     
-    // Обновляем индикатор языка
+    // Обновляем индикатор
     const currentLangEl = document.getElementById('current-lang');
     if (currentLangEl) currentLangEl.textContent = lang.toUpperCase();
     
@@ -121,30 +121,30 @@ function switchLang(lang) {
     const menu = document.getElementById('lang-menu');
     if (menu) menu.style.display = 'none';
     
-    // Переводим статические элементы (из i18n.js)
+    // ✅ Переводим статические элементы (навигация, заголовки)
     if (typeof loadLanguage === 'function') {
         loadLanguage(lang);
     }
     
-    // Перерисовываем динамический контент клиента
+    // ✅ Перерисовываем динамический контент клиента
     if (clientData) {
         renderClient();
     }
 }
 
-// Инициализация при загрузке страницы
+// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
-    // Сначала загружаем переводы интерфейса
+    // ✅ Сначала загружаем переводы интерфейса
     const savedLang = localStorage.getItem('lang') || 'en';
     
     if (typeof loadLanguage === 'function') {
         loadLanguage(savedLang);
     }
     
-    // Обновляем индикатор языка
+    // Обновляем индикатор
     const currentLangEl = document.getElementById('current-lang');
     if (currentLangEl) currentLangEl.textContent = savedLang.toUpperCase();
     
-    // Потом загружаем данные клиента
+    // ✅ Потом загружаем данные клиента
     loadClientData();
 });
