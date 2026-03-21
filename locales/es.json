@@ -5,5 +5,15 @@
     "nav_contact": "Contacto",
     "hero_title": "Experto en RRHH y gestión de proyectos",
     "hero_subtitle": "Construyo equipos. Escalo sistemas. Entrego resultados.",
-    "about_title": "Sobre mí"
+    "about_title": "Sobre mí",
+    "projects_title": "Mis Proyectos",
+    "projects_subtitle": "Una selección de iniciativas que he liderado",
+    "contact_title": "Ponte en contacto",
+    "contact_subtitle": "Hablemos sobre cómo puedo ayudar a tu equipo a crecer",
+    "contact_info_title": "Información de contacto",
+    "contact_info_text": "Siempre estoy abierto a discutir nuevas oportunidades y proyectos interesantes.",
+    "form_name": "Tu nombre",
+    "form_email": "Tu correo",
+    "form_message": "Tu mensaje",
+    "form_submit": "Enviar mensaje"
 }
