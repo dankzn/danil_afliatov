@@ -1,5 +1,4 @@
 let clientData = null;
-let currentLang = localStorage.getItem('lang') || 'en';
 
 // Загрузка данных клиента
 async function loadClientData() {
