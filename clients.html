@@ -82,16 +82,17 @@
     </div>
 </section>
 
+<!-- Подключаем систему переводов (ОБЯЗАТЕЛЬНО первым!) -->
+<script src="assets/js/i18n.js"></script>
+
+<!-- Обработка логотипов клиентов -->
 <script>
-    // Обработка логотипов клиентов
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.client-logo-img').forEach(function(img) {
-            // Если картинка уже загрузилась (из кэша)
             if (img.complete && img.naturalWidth === 0) {
                 img.classList.add('error');
             }
             
-            // Если картинка загрузилась успешно
             img.addEventListener('load', function() {
                 if (this.naturalWidth === 0) {
                     this.classList.add('error');
@@ -100,7 +101,6 @@
                 }
             });
             
-            // Если ошибка загрузки
             img.addEventListener('error', function() {
                 this.classList.add('error');
             });
