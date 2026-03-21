@@ -13,12 +13,10 @@
 <header>
  <nav>
 
-  <!-- ЛОГО / ИМЯ -->
   <a href="index.html" class="logo">
-  Danil Afliatov
-</a>
+    Danil Afliatov
+  </a>
 
-  <!-- МЕНЮ -->
   <div class="nav-links">
     <a href="index.html" data-i18n="nav_home"></a>
     <a href="about.html" data-i18n="nav_about"></a>
@@ -26,16 +24,19 @@
     <a href="contact.html" data-i18n="nav_contact"></a>
   </div>
 
-  <!-- ЯЗЫК -->
   <div class="lang-dropdown">
-  <button class="lang-btn">EN ▾</button>
 
-  <div class="lang-menu">
-    <div onclick="setLanguage('en')">English</div>
-    <div onclick="setLanguage('ru')">Русский</div>
-    <div onclick="setLanguage('es')">Español</div>
+    <button class="lang-btn" onclick="toggleLangMenu(event)">
+      <span id="current-lang">EN</span> ▾
+    </button>
+
+    <div class="lang-menu" id="lang-menu">
+      <div onclick="changeLang('en', event)">English</div>
+      <div onclick="changeLang('ru', event)">Русский</div>
+      <div onclick="changeLang('es', event)">Español</div>
+    </div>
+
   </div>
-</div>
 
 </nav>
 </header>
