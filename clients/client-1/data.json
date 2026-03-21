@@ -1,7 +1,7 @@
 {
     "id": "client-1",
     "logo": "../../assets/clients/client-1-logo.png",
-    "logoFallback": "TC",
+    "logoFallback": "GMCS VerEx",
     "duration": "6 months engagement • 2023",
     "tags": ["HR Strategy", "Scaling", "IT"],
     "results": [
@@ -11,7 +11,7 @@
         { "number": "95%", "labelKey": "result_4" }
     ],
     "en": {
-        "name": "TechCorp International",
+        "name": "GMCS VerEx (General Management Consulting Services)",
         "request": "Scale engineering team from 20 to 100+ while maintaining culture",
         "challenge": "TechCorp needed to triple their engineering team in 6 months without compromising on quality or company culture. They were losing candidates to competitors and had no structured hiring process.",
         "solutions": [
@@ -41,9 +41,9 @@
         "ctaTitle": "Want similar results for your company?"
     },
     "ru": {
-        "name": "TechCorp International",
-        "request": "Масштабировать инженерную команду с 20 до 100+ с сохранением культуры",
-        "challenge": "TechCorp нужно было утроить инженерную команду за 6 месяцев без потери качества и корпоративной культуры.",
+        "name": "GMCS VerEx (General Management Consulting Services)",
+        "request": "Полностью перевести все процессы с системы Axapta на платформу WebSoft HCM. Запрос состоял в полном отказе от Axapta для внутреннего пользования компанией и ее сотрудниками, для этого было необходимо перенести все процессы (TimeSheet сотрудников, полную оргструктуру компании, все документообороты по сотруднику и иные процеесы) на HCM платформу",
+        "challenge": "GMCS VerEx нужно было в кратчайшие сроки перенести все процессы без потери качества. Также, оптимизировать оргструктуру компании. Внедрить оценку персонала 360 градусов.",
         "solutions": [
             {
                 "icon": "🎯",
@@ -71,7 +71,7 @@
         "ctaTitle": "Хотите похожие результаты для вашей компании?"
     },
     "es": {
-        "name": "TechCorp International",
+        "name": "GMCS VerEx (General Management Consulting Services)",
         "request": "Escalar equipo de ingeniería de 20 a 100+ manteniendo la cultura",
         "challenge": "TechCorp necesitaba triplicar su equipo de ingeniería en 6 meses.",
         "solutions": [
