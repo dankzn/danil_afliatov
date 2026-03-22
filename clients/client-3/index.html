@@ -1,110 +1,198 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study</title>
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="../../index.html" class="logo">Danil Afliatov</a>
-            <div class="nav-right">
-                <div class="nav-links">
-                    <a href="../../index.html" data-i18n="nav_home">Home</a>
-                    <a href="../../about.html" data-i18n="nav_about">About</a>
-                    <a href="../../clients.html" data-i18n="nav_clients">Clients</a>
-                    <a href="../../contact.html" data-i18n="nav_contact">Contact</a>
+let clientData = null;
+
+// Загрузка данных клиента
+async function loadClientData() {
+    try {
+        console.log('Loading data.json...');
+        const response = await fetch('data.json');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        clientData = await response.json();
+        console.log('Data loaded:', clientData);
+        
+        renderClient();
+    } catch (error) {
+        console.error('Error loading client data:', error);
+    }
+}
+
+// Отображение данных
+function renderClient() {
+    console.log('Rendering client...');
+    
+    if (!clientData) {
+        console.error('No client data available');
+        return;
+    }
+    
+    // Получаем текущий язык
+    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
+    console.log('Current language:', lang);
+    
+    const data = clientData[lang];
+    
+    if (!data) {
+        console.error('No translations for language:', lang);
+        console.log('Available languages:', Object.keys(clientData));
+        return;
+    }
+    
+    console.log('Rendering with data:', data);
+    
+    // Логотип
+    const logoImg = document.getElementById('client-logo');
+    const logoFallback = document.getElementById('client-logo-fallback');
+    
+    if (logoImg && clientData.logo) {
+        console.log('Setting logo:', clientData.logo);
+        logoImg.src = clientData.logo;
+        logoImg.alt = data.name || 'Client logo';
+        
+        logoImg.onload = function() {
+            console.log('Logo loaded successfully');
+            if (this.naturalWidth === 0) {
+                this.style.display = 'none';
+                if (logoFallback) {
+                    logoFallback.style.display = 'flex';
+                    logoFallback.textContent = clientData.logoFallback || 'CL';
+                }
+            } else {
+                this.style.display = 'block';
+                if (logoFallback) logoFallback.style.display = 'none';
+            }
+        };
+        
+        logoImg.onerror = function() {
+            console.error('Logo failed to load');
+            this.style.display = 'none';
+            if (logoFallback) {
+                logoFallback.style.display = 'flex';
+                logoFallback.textContent = clientData.logoFallback || 'CL';
+            }
+        };
+    } else if (logoFallback) {
+        logoFallback.style.display = 'flex';
+        logoFallback.textContent = clientData.logoFallback || 'CL';
+    }
+    
+    // Основная информация
+    const nameEl = document.getElementById('client-name');
+    if (nameEl) {
+        nameEl.textContent = data.name || '';
+        console.log('Set name:', data.name);
+    }
+    
+    const requestEl = document.getElementById('client-request');
+    if (requestEl) {
+        requestEl.textContent = data.request || '';
+    }
+    
+    const challengeEl = document.getElementById('client-challenge');
+    if (challengeEl) {
+        challengeEl.textContent = data.challenge || '';
+    }
+    
+    // Мета-информация
+    const industryEl = document.getElementById('meta-industry');
+    if (industryEl && clientData.industry) industryEl.textContent = clientData.industry;
+    
+    const solutionEl = document.getElementById('meta-solution');
+    if (solutionEl && clientData.solution) solutionEl.textContent = clientData.solution;
+    
+    const platformEl = document.getElementById('meta-platform');
+    if (platformEl && clientData.platform) platformEl.textContent = clientData.platform;
+    
+    const durationEl = document.getElementById('meta-duration');
+    if (durationEl && clientData.duration) durationEl.textContent = clientData.duration;
+    
+    // Решения
+    const solutionsContainer = document.getElementById('client-solutions');
+    if (solutionsContainer && data.solutions) {
+        const solutionTitle = lang === 'ru' ? 'Решение' : lang === 'es' ? 'Solución' : 'Solution';
+        solutionsContainer.innerHTML = `
+            <h2>${solutionTitle}</h2>
+            ${data.solutions.map(solution => `
+                <div class="solution-item">
+                    <h3>${solution.title}</h3>
+                    <p>${solution.desc}</p>
                 </div>
-                <div class="lang-dropdown">
-                    <button class="lang-btn" onclick="toggleLangMenu(event)">
-                        <span id="current-lang">EN</span> ▾
-                    </button>
-                    <div class="lang-menu" id="lang-menu">
-                        <div onclick="switchLang('en')">English</div>
-                        <div onclick="switchLang('ru')">Русский</div>
-                        <div onclick="switchLang('es')">Español</div>
-                    </div>
-                </div>
+            `).join('')}
+        `;
+    }
+    
+    // Результаты
+    const resultsContainer = document.getElementById('client-results');
+    if (resultsContainer && clientData.results) {
+        resultsContainer.innerHTML = clientData.results.map(result => `
+            <div class="result-card">
+                <div class="result-number">${result.number}</div>
+                <div class="result-label">${data[result.labelKey] || ''}</div>
             </div>
-        </nav>
-    </header>
+        `).join('');
+    }
+    
+    // Отзыв
+    const testimonialSection = document.getElementById('testimonial-section');
+    if (testimonialSection && data.testimonial) {
+        testimonialSection.style.display = 'block';
+        
+        const authorEl = document.getElementById('testimonial-author');
+        if (authorEl && data.testimonialAuthor) {
+            authorEl.innerHTML = `
+                <strong>${data.testimonialAuthor}</strong>
+                <span>${data.testimonialPosition || ''}</span>
+            `;
+        }
+        
+        const textEl = document.getElementById('client-testimonial');
+        if (textEl) textEl.textContent = `"${data.testimonial}"`;
+    }
+    
+    // CTA
+    const ctaTitleEl = document.getElementById('client-cta-title');
+    if (ctaTitleEl) ctaTitleEl.textContent = data.ctaTitle || '';
+}
 
-    <section class="case-hero">
-        <div class="container">
-            <a href="../../clients.html" class="back-link">← <span data-i18n="back_to_clients">Back to Clients</span></a>
-        </div>
-    </section>
+// Переключение языка
+function switchLang(lang) {
+    console.log('Switching language to:', lang);
+    
+    if (typeof currentLang !== 'undefined') {
+        currentLang = lang;
+    }
+    localStorage.setItem('lang', lang);
+    
+    const currentLangEl = document.getElementById('current-lang');
+    if (currentLangEl) currentLangEl.textContent = lang.toUpperCase();
+    
+    const menu = document.getElementById('lang-menu');
+    if (menu) menu.style.display = 'none';
+    
+    if (typeof loadLanguage === 'function') {
+        loadLanguage(lang);
+    }
+    
+    if (clientData) {
+        renderClient();
+    }
+}
 
-    <section class="case-main">
-        <div class="container">
-            <div class="case-layout">
-                <!-- Левая колонка -->
-                <aside class="case-sidebar">
-                    <div class="case-logo-box">
-                        <img id="client-logo" src="" alt="Client">
-                        <div id="client-logo-fallback" class="client-logo-fallback large"></div>
-                    </div>
-                    
-                    <div class="case-meta">
-                        <div class="meta-item">
-                            <span class="meta-label" data-i18n="meta_industry">Industry:</span>
-                            <span class="meta-value" id="meta-industry">Manufacturing</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label" data-i18n="meta_solution">Solution:</span>
-                            <span class="meta-value" id="meta-solution">Production Modernization</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label" data-i18n="meta_platform">Platform:</span>
-                            <span class="meta-value" id="meta-platform">IBM Maximo</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label" data-i18n="meta_duration">Duration:</span>
-                            <span class="meta-value" id="meta-duration">8 months</span>
-                        </div>
-                    </div>
-                </aside>
-
-                <!-- Правая колонка -->
-                <div class="case-content">
-                    <div class="case-header">
-                        <h1 id="client-name"></h1>
-                        <p class="case-subtitle" id="client-request"></p>
-                    </div>
-
-                    <div class="case-description">
-                        <ul class="case-bullets">
-                            <li id="client-challenge"></li>
-                        </ul>
-                    </div>
-
-                    <div class="case-solutions" id="client-solutions">
-                        <!-- Заполняется через JS -->
-                    </div>
-
-                    <div class="case-results">
-                        <h2 data-i18n="case_results">Results</h2>
-                        <div class="results-grid" id="client-results"></div>
-                    </div>
-
-                    <div class="case-testimonial" id="testimonial-section">
-                        <h2 data-i18n="case_testimonial">Testimonial</h2>
-                        <div class="testimonial-author" id="testimonial-author"></div>
-                        <blockquote class="testimonial-text" id="client-testimonial"></blockquote>
-                    </div>
-
-                    <div class="case-cta">
-                        <h3 id="client-cta-title"></h3>
-                        <a href="../../contact.html" class="btn primary" data-i18n="case_cta_button">Let's Talk</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="../../assets/js/i18n.js"></script>
-    <script src="client.js"></script>
-</body>
-</html>
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded');
+    
+    const savedLang = localStorage.getItem('lang') || 'en';
+    console.log('Saved language:', savedLang);
+    
+    if (typeof loadLanguage === 'function') {
+        loadLanguage(savedLang);
+    }
+    
+    const currentLangEl = document.getElementById('current-lang');
+    if (currentLangEl) currentLangEl.textContent = savedLang.toUpperCase();
+    
+    loadClientData();
+});
