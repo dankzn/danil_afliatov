@@ -1,30 +1,24 @@
 let clientData = null;
 
-// Загрузка данных клиента
 async function loadClientData() {
     try {
         const response = await fetch('data.json');
         clientData = await response.json();
         renderClient();
     } catch (error) {
-        console.error('Error loading client ', error);
+        console.error('Error loading client data:', error);
     }
 }
 
-// Отображение данных
 function renderClient() {
     if (!clientData) return;
     
-    // ✅ Используем currentLang из i18n.js
     const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
     const data = clientData[lang];
     
-    if (!data) {
-        console.error('No translations for language:', lang);
-        return;
-    }
+    if (!data) return;
     
-    // Логотип
+    // Logo
     const logoImg = document.getElementById('client-logo');
     const logoFallback = document.getElementById('client-logo-fallback');
     
@@ -51,100 +45,115 @@ function renderClient() {
         };
     }
     
-    // Основная информация
+    // Content
     const nameEl = document.getElementById('client-name');
-    if (nameEl) nameEl.textContent = data.name;
+    if (nameEl) nameEl.textContent = data.name || '';
     
-    const durationEl = document.getElementById('client-duration');
-    if (durationEl) durationEl.textContent = clientData.duration;
+    const requestEl = document.getElementById('client-request');
+    if (requestEl) requestEl.textContent = data.request || '';
     
     const challengeEl = document.getElementById('client-challenge');
-    if (challengeEl) challengeEl.textContent = data.challenge;
+    if (challengeEl) challengeEl.textContent = data.challenge || '';
     
-    // Теги
-    const tagsContainer = document.getElementById('client-tags');
-    if (tagsContainer && clientData.tags) {
-        tagsContainer.innerHTML = clientData.tags.map(tag => `<span>${tag}</span>`).join('');
+    // Meta
+    if (clientData.industry) {
+        const industryEl = document.getElementById('meta-industry');
+        if (industryEl) industryEl.textContent = clientData.industry;
+    }
+    if (clientData.solution) {
+        const solutionEl = document.getElementById('meta-solution');
+        if (solutionEl) solutionEl.textContent = clientData.solution;
+    }
+    if (clientData.platform) {
+        const platformEl = document.getElementById('meta-platform');
+        if (platformEl) platformEl.textContent = clientData.platform;
+    }
+    if (clientData.duration) {
+        const durationEl = document.getElementById('meta-duration');
+        if (durationEl) durationEl.textContent = clientData.duration;
     }
     
-    // Решения
+    // Solutions - БЕЗ ШАБЛОННЫХ СТРОК!
     const solutionsContainer = document.getElementById('client-solutions');
     if (solutionsContainer && data.solutions) {
-        solutionsContainer.innerHTML = data.solutions.map(solution => `
-            <div class="solution-item">
-                <div class="solution-icon">${solution.icon}</div>
-                <h3>${solution.title}</h3>
-                <p>${solution.desc}</p>
-            </div>
-        `).join('');
+        var solutionTitle = lang === 'ru' ? 'Решение' : lang === 'es' ? 'Solución' : 'Solution';
+        var solutionsHTML = '<h2>' + solutionTitle + '</h2>';
+        
+        for (var i = 0; i < data.solutions.length; i++) {
+            var solution = data.solutions[i];
+            solutionsHTML += '<div class="solution-item">';
+            solutionsHTML += '<h3>' + solution.title + '</h3>';
+            solutionsHTML += '<p>' + solution.desc + '</p>';
+            solutionsHTML += '</div>';
+        }
+        
+        solutionsContainer.innerHTML = solutionsHTML;
     }
     
-    // Результаты
+    // Results - БЕЗ ШАБЛОННЫХ СТРОК!
     const resultsContainer = document.getElementById('client-results');
     if (resultsContainer && clientData.results) {
-        resultsContainer.innerHTML = clientData.results.map(result => `
-            <div class="result-card">
-                <div class="result-number">${result.number}</div>
-                <div class="result-label">${data[result.labelKey] || ''}</div>
-            </div>
-        `).join('');
+        var resultsHTML = '';
+        
+        for (var j = 0; j < clientData.results.length; j++) {
+            var result = clientData.results[j];
+            var label = data[result.labelKey] || '';
+            resultsHTML += '<div class="result-card">';
+            resultsHTML += '<div class="result-number">' + result.number + '</div>';
+            resultsHTML += '<div class="result-label">' + label + '</div>';
+            resultsHTML += '</div>';
+        }
+        
+        resultsContainer.innerHTML = resultsHTML;
     }
     
-    // Отзыв
-    const testimonialEl = document.getElementById('client-testimonial');
-    if (testimonialEl) testimonialEl.textContent = data.testimonial ? `"${data.testimonial}"` : '';
-    
-    const testimonialAuthorEl = document.getElementById('client-testimonial-author');
-    if (testimonialAuthorEl) testimonialAuthorEl.textContent = data.testimonialAuthor || '';
-    
-    const testimonialPositionEl = document.getElementById('client-testimonial-position');
-    if (testimonialPositionEl) testimonialPositionEl.textContent = data.testimonialPosition || '';
+    // Testimonial
+    const testimonialSection = document.getElementById('testimonial-section');
+    if (testimonialSection && data.testimonial) {
+        testimonialSection.style.display = 'block';
+        const authorEl = document.getElementById('testimonial-author');
+        if (authorEl && data.testimonialAuthor) {
+            authorEl.innerHTML = '<strong>' + data.testimonialAuthor + '</strong><span>' + (data.testimonialPosition || '') + '</span>';
+        }
+        const textEl = document.getElementById('client-testimonial');
+        if (textEl) textEl.textContent = '"' + data.testimonial + '"';
+    }
     
     // CTA
     const ctaTitleEl = document.getElementById('client-cta-title');
     if (ctaTitleEl) ctaTitleEl.textContent = data.ctaTitle || '';
 }
 
-// Переключение языка
 function switchLang(lang) {
-    // ✅ Обновляем глобальную переменную в i18n.js
     if (typeof currentLang !== 'undefined') {
         currentLang = lang;
     }
     localStorage.setItem('lang', lang);
     
-    // Обновляем индикатор
     const currentLangEl = document.getElementById('current-lang');
     if (currentLangEl) currentLangEl.textContent = lang.toUpperCase();
     
-    // Закрываем меню
     const menu = document.getElementById('lang-menu');
     if (menu) menu.style.display = 'none';
     
-    // ✅ Переводим статические элементы (навигация, заголовки)
     if (typeof loadLanguage === 'function') {
         loadLanguage(lang);
     }
     
-    // ✅ Перерисовываем динамический контент клиента
     if (clientData) {
         renderClient();
     }
 }
 
-// Инициализация
-document.addEventListener('DOMContentLoaded', () => {
-    // ✅ Сначала загружаем переводы интерфейса
+document.addEventListener('DOMContentLoaded', function() {
     const savedLang = localStorage.getItem('lang') || 'en';
     
     if (typeof loadLanguage === 'function') {
         loadLanguage(savedLang);
     }
     
-    // Обновляем индикатор
     const currentLangEl = document.getElementById('current-lang');
     if (currentLangEl) currentLangEl.textContent = savedLang.toUpperCase();
     
-    // ✅ Потом загружаем данные клиента
     loadClientData();
 });
