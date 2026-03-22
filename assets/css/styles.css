@@ -257,7 +257,7 @@ button:hover {
 
 /* ===== CONTAINER ===== */
 .container { 
-    max-width: 1200px; 
+    max-width: 1000px; 
     margin: 0 auto; 
     padding: 40px 20px; 
 }
@@ -382,7 +382,7 @@ button:hover {
 
 /* ===== PAGE HEADER ===== */
 .page-header {
-    padding: 120px 20px 60px;
+    padding: 60px 20px 40px;
     text-align: center;
 }
 
@@ -404,14 +404,14 @@ button:hover {
 
 /* ===== CLIENTS PAGE ===== */
 .clients {
-    padding: 60px 20px 100px;
+    padding: 40px 20px 60px;
 }
 
 .clients-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 1000px;
+    gap: 30px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -419,13 +419,13 @@ button:hover {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
-    padding: 40px 30px;
+    padding: 30px 25px;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-height: 580px;
+    min-height: 520px;
 }
 
 .client-card:hover {
