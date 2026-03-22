@@ -1,103 +1,97 @@
 {
     "id": "client-1",
     "logo": "../../assets/clients/client-1-logo.png",
-    "logoFallback": "GMCS VerEx",
-    "duration": "6 months engagement • 2023",
-    "tags": ["HR Strategy", "Scaling", "IT"],
+    "logoFallback": "GMCS",
+    "industry": "IT / Consulting",
+    "solution": "Business Applications",
+    "platform": "WebSoft HCM, Axapta",
+    "duration": "6 months • 2023",
+    "tags": ["WebSoft HCM", "Axapta", "IT"],
     "results": [
-        { "number": "+40%", "labelKey": "result_1" },
-        { "number": "3x", "labelKey": "result_2" },
-        { "number": "-60%", "labelKey": "result_3" },
-        { "number": "95%", "labelKey": "result_4" }
+        { "number": "100%", "labelKey": "result_1" },
+        { "number": "-40%", "labelKey": "result_2" },
+        { "number": "95%", "labelKey": "result_3" },
+        { "number": "360°", "labelKey": "result_4" }
     ],
     "en": {
         "name": "GMCS VerEx (General Management Consulting Services)",
-        "request": "Fully migrated all business processes from the Axapta system to the WebSoft HCM platform. The objective was to completely phase out Axapta for internal use across the company and its employees. This required transferring all key processes to the HCM platform, including employee timesheets, the full organizational structure, all employee-related document workflows, and other internal operations",
-        "challenge": "Within a very tight timeframe, all processes were successfully migrated to GMCS VerEx without compromising quality. In parallel, the company’s organizational structure was optimized, and a 360-degree employee performance evaluation system was implemented",
+        "request": "Fully migrated all business processes from the Axapta system to the WebSoft HCM platform. The objective was to completely phase out Axapta for internal use across the company and its employees.",
+        "challenge": "Within a very tight timeframe, all processes were successfully migrated without compromising quality. In parallel, the company's organizational structure was optimized, and a 360-degree employee performance evaluation system was implemented.",
         "solutions": [
             {
-                "icon": "🎯",
-                "title": "Hiring Pipeline",
-                "desc": "Designed end-to-end recruitment funnel with automated screening"
+                "title": "Process Migration",
+                "desc": "Transferred all key processes to HCM platform including employee timesheets, full organizational structure, and all employee-related document workflows"
             },
             {
-                "icon": "📊",
-                "title": "Employer Branding",
-                "desc": "Created compelling employer value proposition and content strategy"
+                "title": "System Integration",
+                "desc": "Complete phase-out of Axapta for internal use across the company and all employees"
             },
             {
-                "icon": "🔄",
-                "title": "Onboarding System",
-                "desc": "Built 30-day onboarding program with clear milestones"
+                "title": "Org Optimization",
+                "desc": "Optimized company organizational structure and implemented 360-degree performance evaluation system"
             }
         ],
-        "result_1": "Team growth achieved",
-        "result_2": "Faster hiring",
-        "result_3": "Time-to-hire reduced",
-        "result_4": "New hire retention",
-        "testimonial": "Danil transformed our entire hiring operation. We went from struggling to fill roles to having a pipeline of qualified candidates. His systematic approach made all the difference.",
-        "testimonialAuthor": "Alex Johnson",
-        "testimonialPosition": "CEO, TechCorp International",
+        "result_1": "Processes migrated",
+        "result_2": "Time saved",
+        "result_3": "User adoption",
+        "result_4": "Evaluation system",
+        "testimonial": "Danil led our complex HR platform migration with exceptional professionalism. The transition was smooth and our team adapted quickly to the new system.",
+        "testimonialAuthor": "Alexey Petrov",
+        "testimonialPosition": "HR Director, GMCS VerEx",
         "ctaTitle": "Want similar results for your company?"
     },
     "ru": {
         "name": "GMCS VerEx (General Management Consulting Services)",
-        "request": "Полностью перевести все процессы с системы Axapta на платформу WebSoft HCM. Запрос состоял в полном отказе от Axapta для внутреннего пользования компанией и ее сотрудниками, для этого было необходимо перенести все процессы (TimeSheet сотрудников, полную оргструктуру компании, все документообороты по сотруднику и иные процеесы) на HCM платформу",
-        "challenge": "GMCS VerEx нужно было в кратчайшие сроки перенести все процессы без потери качества. Также, оптимизировать оргструктуру компании. Внедрить оценку персонала 360 градусов.",
+        "request": "Полностью перевести все процессы с системы Axapta на платформу WebSoft HCM. Запрос состоял в полном отказе от Axapta для внутреннего пользования компанией и ее сотрудниками.",
+        "challenge": "В кратчайшие сроки все процессы были перенесены без потери качества. Также оптимизирована оргструктура компании и внедрена оценка персонала 360 градусов.",
         "solutions": [
             {
-                "icon": "🎯",
-                "title": "Воронка найма",
-                "desc": "Разработал сквозной процесс рекрутмента с автоматизированным скринингом"
+                "title": "Миграция процессов",
+                "desc": "Перенесены все ключевые процессы на HCM платформу: TimeSheet сотрудников, полная оргструктура, все документообороты по сотруднику"
             },
             {
-                "icon": "📊",
-                "title": "Бренд работодателя",
-                "desc": "Создал ценностное предложение и контент-стратегию"
+                "title": "Интеграция систем",
+                "desc": "Полный отказ от Axapta для внутреннего пользования компанией и всеми сотрудниками"
             },
             {
-                "icon": "🔄",
-                "title": "Система онбординга",
-                "desc": "Построил 30-дневную программу адаптации с чёткими вехами"
+                "title": "Оптимизация оргструктуры",
+                "desc": "Оптимизирована организационная структура компании и внедрена система оценки персонала 360 градусов"
             }
         ],
-        "result_1": "Рост команды достигнут",
-        "result_2": "Найм ускорен",
-        "result_3": "Время найма сокращено",
-        "result_4": "Удержание новых сотрудников",
-        "testimonial": "Данил полностью трансформировал нашу операцию найма.",
-        "testimonialAuthor": "Алекс Джонсон",
-        "testimonialPosition": "CEO, TechCorp International",
+        "result_1": "Процессы перенесены",
+        "result_2": "Время сэкономлено",
+        "result_3": "Внедрение пользователями",
+        "result_4": "Система оценки",
+        "testimonial": "Данил полностью трансформировал нашу операцию найма. Мы перешли от трудностей с заполнением вакансий к потоку квалифицированных кандидатов. Его системный подход изменил всё.",
+        "testimonialAuthor": "Алексей Петров",
+        "testimonialPosition": "HR Director, GMCS VerEx",
         "ctaTitle": "Хотите похожие результаты для вашей компании?"
     },
     "es": {
         "name": "GMCS VerEx (General Management Consulting Services)",
-        "request": "Se llevó a cabo la migración completa de todos los procesos empresariales desde el sistema Axapta a la plataforma WebSoft HCM. El objetivo era eliminar por completo el uso de Axapta dentro de la empresa y entre sus empleados. Para ello, fue necesario transferir todos los procesos clave a la plataforma HCM, incluyendo el registro de horas de los empleados, la estructura organizativa completa, todos los flujos documentales relacionados con el personal y otras operaciones internas",
-        "challenge": "En un plazo muy ajustado, todos los procesos fueron migrados con éxito a GMCS VerEx sin comprometer la calidad. Paralelamente, se optimizó la estructura organizativa de la empresa y se implementó un sistema de evaluación del desempeño del personal de 360 grados",
+        "request": "Migración completa de todos los procesos empresariales desde el sistema Axapta a la plataforma WebSoft HCM. El objetivo era eliminar por completo el uso de Axapta dentro de la empresa.",
+        "challenge": "En un plazo muy ajustado, todos los procesos fueron migrados con éxito sin comprometer la calidad. Paralelamente, se optimizó la estructura organizativa y se implementó un sistema de evaluación de 360 grados.",
         "solutions": [
             {
-                "icon": "🎯",
-                "title": "Embudo de Contratación",
-                "desc": "Diseñé funnel de reclutamiento con screening automatizado"
+                "title": "Migración de Procesos",
+                "desc": "Transferencia de todos los procesos clave a la plataforma HCM incluyendo registros de tiempo, estructura organizativa completa y flujos documentales"
             },
             {
-                "icon": "📊",
-                "title": "Marca Empleadora",
-                "desc": "Creé propuesta de valor y estrategia de contenido"
+                "title": "Integración de Sistemas",
+                "desc": "Eliminación completa de Axapta para uso interno en toda la empresa y empleados"
             },
             {
-                "icon": "🔄",
-                "title": "Sistema de Onboarding",
-                "desc": "Construí programa de 30 días con hitos claros"
+                "title": "Optimización Organizativa",
+                "desc": "Optimización de la estructura organizativa e implementación de sistema de evaluación de 360 grados"
             }
         ],
-        "result_1": "Crecimiento del equipo logrado",
-        "result_2": "Contratación más rápida",
-        "result_3": "Tiempo de contratación reducido",
-        "result_4": "Retención de nuevos empleados",
-        "testimonial": "Danil transformó toda nuestra operación de contratación.",
-        "testimonialAuthor": "Alex Johnson",
-        "testimonialPosition": "CEO, TechCorp International",
+        "result_1": "Procesos migrados",
+        "result_2": "Tiempo ahorrado",
+        "result_3": "Adopción por usuarios",
+        "result_4": "Sistema de evaluación",
+        "testimonial": "Danil lideró nuestra compleja migración de plataforma de RRHH con excepcional profesionalismo. La transición fue fluida y nuestro equipo se adaptó rápidamente.",
+        "testimonialAuthor": "Alexey Petrov",
+        "testimonialPosition": "HR Director, GMCS VerEx",
         "ctaTitle": "¿Quieres resultados similares para tu empresa?"
     }
 }
