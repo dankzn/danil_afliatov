@@ -1018,3 +1018,22 @@ footer {
         font-size: 48px;
     }
 }
+/* ===== ИСПРАВЛЕНИЕ ДЛЯ 3 КОЛОНОК ===== */
+.clients-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+.client-card {
+    min-height: 580px !important;
+    padding: 40px 30px !important;
+}
+
+.client-logo {
+    width: 220px !important;
+    height: 220px !important;
+    margin-bottom: 30px !important;
+}
