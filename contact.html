@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <script>
+        (function() {
+            var saved = null;
+            try { saved = localStorage.getItem('theme'); } catch (e) { saved = null; }
+            var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            var theme = saved || (prefersLight ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -19,6 +28,9 @@
                     <a href="contact.html" data-i18n="nav_contact">Contact</a>
                 </div>
                 
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
+                    <span class="theme-icon" id="theme-icon">☾</span>
+                </button>
                 <div class="lang-dropdown">
                     <button class="lang-btn" onclick="toggleLangMenu(event)">
                         <span id="current-lang">EN</span> ▾
@@ -76,7 +88,15 @@
         </div>
     </section>
 
+    <footer>
+        <div class="container">
+            <p class="footer-text">© <span data-footer-year></span> Danil Afliatov. <span data-i18n="footer_rights"></span></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js"></script>
     <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/footer.js"></script>
     
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>

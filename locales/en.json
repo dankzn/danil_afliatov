@@ -112,5 +112,6 @@
     "form_name": "Your Name",
     "form_email": "Your Email",
     "form_message": "Your Message",
-    "form_submit": "Send Message"
+    "form_submit": "Send Message",
+    "footer_rights": "All rights reserved."
 }

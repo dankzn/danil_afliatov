@@ -112,5 +112,6 @@
     "form_name": "Tu nombre",
     "form_email": "Tu correo",
     "form_message": "Tu mensaje",
-    "form_submit": "Enviar mensaje"
+    "form_submit": "Enviar mensaje",
+    "footer_rights": "Todos los derechos reservados."
 }

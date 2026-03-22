@@ -86,5 +86,6 @@
     "form_name": "Ваше имя",
     "form_email": "Ваш Email",
     "form_message": "Ваше сообщение",
-    "form_submit": "Отправить"
+    "form_submit": "Отправить",
+    "footer_rights": "Все права защищены."
 }
