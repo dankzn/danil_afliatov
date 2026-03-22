@@ -29,6 +29,10 @@
             {
                 "title": "Org Optimization",
                 "desc": "Optimized company organizational structure and implemented 360-degree performance evaluation system"
+            },
+            {
+                "title": "System Integration",
+                "desc": "Complete phase-out of Axapta for internal use across the company and all employees"
             }
         ],
         "result_1": "Processes migrated",
@@ -56,6 +60,10 @@
             {
                 "title": "Оптимизация оргструктуры",
                 "desc": "Оптимизирована организационная структура компании и внедрена система оценки персонала 360 градусов"
+            },
+            {
+                "title": "Оценка персонала 360°",
+                "desc": "Внедрена полная комплексная оценка персонала по Soft Skills и Hard Skills"
             }
         ],
         "result_1": "Процессы перенесены",
