@@ -15,14 +15,10 @@ async function loadClientData() {
 function renderClient() {
     if (!clientData) return;
     
-    // ✅ Используем currentLang из i18n.js
     const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
     const data = clientData[lang];
     
-    if (!data) {
-        console.error('No translations for language:', lang);
-        return;
-    }
+    if (!data) return;
     
     // Логотип
     const logoImg = document.getElementById('client-logo');
@@ -55,28 +51,37 @@ function renderClient() {
     const nameEl = document.getElementById('client-name');
     if (nameEl) nameEl.textContent = data.name;
     
-    const durationEl = document.getElementById('client-duration');
-    if (durationEl) durationEl.textContent = clientData.duration;
+    const requestEl = document.getElementById('client-request');
+    if (requestEl) requestEl.textContent = data.request;
     
     const challengeEl = document.getElementById('client-challenge');
     if (challengeEl) challengeEl.textContent = data.challenge;
     
-    // Теги
-    const tagsContainer = document.getElementById('client-tags');
-    if (tagsContainer && clientData.tags) {
-        tagsContainer.innerHTML = clientData.tags.map(tag => `<span>${tag}</span>`).join('');
-    }
+    // Мета-информация (можно добавить в data.json)
+    const industryEl = document.getElementById('meta-industry');
+    if (industryEl && clientData.industry) industryEl.textContent = clientData.industry;
+    
+    const solutionEl = document.getElementById('meta-solution');
+    if (solutionEl && clientData.solution) solutionEl.textContent = clientData.solution;
+    
+    const platformEl = document.getElementById('meta-platform');
+    if (platformEl && clientData.platform) platformEl.textContent = clientData.platform;
+    
+    const durationEl = document.getElementById('meta-duration');
+    if (durationEl && clientData.duration) durationEl.textContent = clientData.duration;
     
     // Решения
     const solutionsContainer = document.getElementById('client-solutions');
     if (solutionsContainer && data.solutions) {
-        solutionsContainer.innerHTML = data.solutions.map(solution => `
-            <div class="solution-item">
-                <div class="solution-icon">${solution.icon}</div>
-                <h3>${solution.title}</h3>
-                <p>${solution.desc}</p>
-            </div>
-        `).join('');
+        solutionsContainer.innerHTML = `
+            <h2>${lang === 'ru' ? 'Решение' : lang === 'es' ? 'Solución' : 'Solution'}</h2>
+            ${data.solutions.map(solution => `
+                <div class="solution-item">
+                    <h3>${solution.title}</h3>
+                    <p>${solution.desc}</p>
+                </div>
+            `).join('')}
+        `;
     }
     
     // Результаты
@@ -91,14 +96,21 @@ function renderClient() {
     }
     
     // Отзыв
-    const testimonialEl = document.getElementById('client-testimonial');
-    if (testimonialEl) testimonialEl.textContent = data.testimonial ? `"${data.testimonial}"` : '';
-    
-    const testimonialAuthorEl = document.getElementById('client-testimonial-author');
-    if (testimonialAuthorEl) testimonialAuthorEl.textContent = data.testimonialAuthor || '';
-    
-    const testimonialPositionEl = document.getElementById('client-testimonial-position');
-    if (testimonialPositionEl) testimonialPositionEl.textContent = data.testimonialPosition || '';
+    const testimonialSection = document.getElementById('testimonial-section');
+    if (testimonialSection && data.testimonial) {
+        testimonialSection.style.display = 'block';
+        
+        const authorEl = document.getElementById('testimonial-author');
+        if (authorEl && data.testimonialAuthor) {
+            authorEl.innerHTML = `
+                <strong>${data.testimonialAuthor}</strong>
+                <span>${data.testimonialPosition || ''}</span>
+            `;
+        }
+        
+        const textEl = document.getElementById('client-testimonial');
+        if (textEl) textEl.textContent = `"${data.testimonial}"`;
+    }
     
     // CTA
     const ctaTitleEl = document.getElementById('client-cta-title');
@@ -107,26 +119,21 @@ function renderClient() {
 
 // Переключение языка
 function switchLang(lang) {
-    // ✅ Обновляем глобальную переменную в i18n.js
     if (typeof currentLang !== 'undefined') {
         currentLang = lang;
     }
     localStorage.setItem('lang', lang);
     
-    // Обновляем индикатор
     const currentLangEl = document.getElementById('current-lang');
     if (currentLangEl) currentLangEl.textContent = lang.toUpperCase();
     
-    // Закрываем меню
     const menu = document.getElementById('lang-menu');
     if (menu) menu.style.display = 'none';
     
-    // ✅ Переводим статические элементы (навигация, заголовки)
     if (typeof loadLanguage === 'function') {
         loadLanguage(lang);
     }
     
-    // ✅ Перерисовываем динамический контент клиента
     if (clientData) {
         renderClient();
     }
@@ -134,17 +141,14 @@ function switchLang(lang) {
 
 // Инициализация
 document.addEventListener('DOMContentLoaded', () => {
-    // ✅ Сначала загружаем переводы интерфейса
     const savedLang = localStorage.getItem('lang') || 'en';
     
     if (typeof loadLanguage === 'function') {
         loadLanguage(savedLang);
     }
     
-    // Обновляем индикатор
     const currentLangEl = document.getElementById('current-lang');
     if (currentLangEl) currentLangEl.textContent = savedLang.toUpperCase();
     
-    // ✅ Потом загружаем данные клиента
     loadClientData();
 });
