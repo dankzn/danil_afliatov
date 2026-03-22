@@ -113,5 +113,10 @@
     "form_email": "Your Email",
     "form_message": "Your Message",
     "form_submit": "Send Message",
-    "footer_rights": "All rights reserved."
+    "footer_rights": "All rights reserved.",
+    "footer_tagline": "HR & Project Management • Team Building • Systems Thinking",
+    "footer_location_title": "Location",
+    "footer_location_eu": "European Union • Spain",
+    "footer_location_ru": "Russian Federation • Moscow",
+    "footer_social_title": "Social"
 }
