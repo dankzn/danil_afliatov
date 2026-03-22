@@ -1,0 +1,97 @@
+{
+    "id": "client-3",
+    "logo": "../../assets/clients/client-3-logo.png",
+    "logoFallback": "IT",
+    "industry": "Manufacturing",
+    "solution": "Production Modernization",
+    "platform": "IBM Maximo",
+    "duration": "8 months • 2022",
+    "tags": ["IBM Maximo", "Production", "Manufacturing"],
+    "results": [
+        { "number": "+35%", "labelKey": "result_1" },
+        { "number": "-25%", "labelKey": "result_2" },
+        { "number": "99.5%", "labelKey": "result_3" },
+        { "number": "24/7", "labelKey": "result_4" }
+    ],
+    "en": {
+        "name": "Ikon Tyres (ex Nokian Tyres)",
+        "request": "Support for production modernization processes for Ikon Tyres, manufacturer of legendary tires in Russia.",
+        "challenge": "Participation in the launch of an IBM Maximo-based production asset management information system: consulting and training of plant personnel in Vsevolozhsk, Leningrad Oblast, one of the most modern tire plants in Europe.",
+        "solutions": [
+            {
+                "title": "System Implementation",
+                "desc": "Implemented IBM Maximo for production asset management at one of Europe's most modern tire manufacturing plants"
+            },
+            {
+                "title": "Staff Training",
+                "desc": "Conducted comprehensive training for plant personnel in Vsevolozhsk on system operation and maintenance"
+            },
+            {
+                "title": "Process Optimization",
+                "desc": "Optimized production processes and maintenance workflows to maximize equipment uptime"
+            }
+        ],
+        "result_1": "Production efficiency",
+        "result_2": "Downtime reduced",
+        "result_3": "System availability",
+        "result_4": "Support coverage",
+        "testimonial": "Danil's expertise in implementing IBM Maximo was invaluable. His systematic approach to training and process optimization helped us achieve operational excellence.",
+        "testimonialAuthor": "A.Yu. Ustavshchikov",
+        "testimonialPosition": "Production Director, Ikon Tyres",
+        "ctaTitle": "Want to modernize your production?"
+    },
+    "ru": {
+        "name": "Айкон Тайерс (ex Nokian Tyres)",
+        "request": "Поддержка процессов модернизации производства",
+        "challenge": "Участие в проекте запуска информационной системы управления производственными активами на базе IBM Maximo: консультирование и обучение персонала завода во Всеволожске Ленинградской области, самого современного шинного завода в Европе.",
+        "solutions": [
+            {
+                "title": "Внедрение системы",
+                "desc": "Внедрил IBM Maximo для управления производственными активами на одном из самых современных шинных заводов Европы"
+            },
+            {
+                "title": "Обучение персонала",
+                "desc": "Провел комплексное обучение персонала завода во Всеволожске работе с системой и техническому обслуживанию"
+            },
+            {
+                "title": "Оптимизация процессов",
+                "desc": "Оптимизировал производственные процессы и рабочие процессы технического обслуживания для максимизации времени работы оборудования"
+            }
+        ],
+        "result_1": "Эффективность производства",
+        "result_2": "Простои сокращены",
+        "result_3": "Доступность системы",
+        "result_4": "Поддержка 24/7",
+        "testimonial": "Экспертиза Данила во внедрении IBM Maximo была неоценима. Его системный подход к обучению и оптимизации процессов помог нам достичь операционного совершенства.",
+        "testimonialAuthor": "А.Ю. Уставщиков",
+        "testimonialPosition": "Директор по производству, Айкон Тайерс",
+        "ctaTitle": "Хотите модернизировать производство?"
+    },
+    "es": {
+        "name": "Ikon Tyres (ex Nokian Tyres)",
+        "request": "Soporte para procesos de modernización de producción",
+        "challenge": "Participación en el lanzamiento de un sistema de información de gestión de activos de producción basado en IBM Maximo: consultoría y capacitación del personal de la planta en Vsevolozhsk, una de las plantas de neumáticos más modernas de Europa.",
+        "solutions": [
+            {
+                "title": "Implementación del Sistema",
+                "desc": "Implementé IBM Maximo para la gestión de activos de producción en una de las plantas de fabricación de neumáticos más modernas de Europa"
+            },
+            {
+                "title": "Capacitación del Personal",
+                "desc": "Realicé capacitación integral para el personal de la planta en Vsevolozhsk sobre operación y mantenimiento del sistema"
+            },
+            {
+                "title": "Optimización de Procesos",
+                "desc": "Optimicé procesos de producción y flujos de trabajo de mantenimiento para maximizar el tiempo de actividad del equipo"
+            }
+        ],
+        "result_1": "Eficiencia de producción",
+        "result_2": "Tiempo de inactividad reducido",
+        "result_3": "Disponibilidad del sistema",
+        "result_4": "Cobertura de soporte",
+        "testimonial": "La experiencia de Danil en la implementación de IBM Maximo fue invaluable. Su enfoque sistemático para la capacitación y optimización de procesos nos ayudó a lograr la excelencia operativa.",
+        "testimonialAuthor": "A.Yu. Ustavshchikov",
+        "testimonialPosition": "Production Director, Ikon Tyres",
+        "ctaTitle": "¿Quieres modernizar tu producción?"
+    }
+}
