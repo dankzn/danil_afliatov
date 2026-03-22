@@ -26,8 +26,14 @@
     "case_challenge": "The Challenge",
     "case_solution": "The Solution",
     "case_results": "Results",
+    "case_testimonial": "Testimonial",
     "case_cta_title": "Want similar results for your company?",
     "case_cta_button": "Let's Talk",
+
+    "meta_industry": "Industry:",
+    "meta_solution": "Solution:",
+    "meta_platform": "Platform:",
+    "meta_duration": "Duration:",
     
     "client_1_challenge": "GMCS VerEx needed to reorganize their organizational structure and migrate HR processes to the WebSoft HCM platform while maintaining business continuity.",
     "client_1_solution_1_title": "Process Analysis",
