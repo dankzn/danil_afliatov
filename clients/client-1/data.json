@@ -33,6 +33,10 @@
             {
                 "title": "System Integration",
                 "desc": "Complete phase-out of Axapta for internal use across the company and all employees"
+            },
+            {
+                "title": "360-degree performance review",
+                "desc": "A comprehensive employee evaluation system covering both soft skills and hard skills was implemented"
             }
         ],
         "result_1": "Processes migrated",
@@ -91,6 +95,10 @@
             {
                 "title": "Optimización Organizativa",
                 "desc": "Optimización de la estructura organizativa e implementación de sistema de evaluación de 360 grados"
+            },
+            {
+                "title": "Evaluación 360 grados",
+                "desc": "Se implementó un sistema integral de evaluación del personal que abarca tanto habilidades blandas como habilidades técnicas"
             }
         ],
         "result_1": "Procesos migrados",
