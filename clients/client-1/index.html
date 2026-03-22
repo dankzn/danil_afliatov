@@ -34,52 +34,72 @@
     <section class="case-hero">
         <div class="container">
             <a href="../../clients.html" class="back-link">← <span data-i18n="back_to_clients">Back to Clients</span></a>
-            <div class="case-header">
-    <div class="case-logo">
-        <img id="client-logo" src="" alt="Client">
-        <div id="client-logo-fallback" class="client-logo-fallback large"></div>
-    </div>
-    <div class="case-info">
-        <h1 id="client-name"></h1>
-        <p class="case-duration" id="client-duration"></p>
-        <div class="case-tags" id="client-tags"></div>
-    </div>
-</div>
         </div>
     </section>
 
-    <section class="case-content">
+    <section class="case-main">
         <div class="container">
-            <div class="case-section">
-                <h2 data-i18n="case_challenge">The Challenge</h2>
-                <p class="case-text" id="client-challenge"></p>
-            </div>
-
-            <div class="case-section">
-                <h2 data-i18n="case_solution">The Solution</h2>
-                <div class="solution-grid" id="client-solutions"></div>
-            </div>
-
-            <div class="case-section">
-                <h2 data-i18n="case_results">Results</h2>
-                <div class="results-grid" id="client-results"></div>
-            </div>
-
-            <div class="case-section">
-                <div class="testimonial">
-                    <p class="testimonial-text" id="client-testimonial"></p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <strong id="client-testimonial-author"></strong>
-                            <span id="client-testimonial-position"></span>
+            <div class="case-layout">
+                <!-- Левая колонка -->
+                <aside class="case-sidebar">
+                    <div class="case-logo-box">
+                        <img id="client-logo" src="" alt="Client">
+                        <div id="client-logo-fallback" class="client-logo-fallback large"></div>
+                    </div>
+                    
+                    <div class="case-meta">
+                        <div class="meta-item">
+                            <span class="meta-label" data-i18n="meta_industry">Industry:</span>
+                            <span class="meta-value" id="meta-industry">IT</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label" data-i18n="meta_solution">Solution:</span>
+                            <span class="meta-value" id="meta-solution">HR Tech</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label" data-i18n="meta_platform">Platform:</span>
+                            <span class="meta-value" id="meta-platform">WebSoft HCM</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label" data-i18n="meta_duration">Duration:</span>
+                            <span class="meta-value" id="meta-duration">6 months</span>
                         </div>
                     </div>
-                </div>
-            </div>
+                </aside>
 
-            <div class="case-cta">
-                <h3 id="client-cta-title"></h3>
-                <a href="../../contact.html" class="btn primary" data-i18n="case_cta_button">Let's Talk</a>
+                <!-- Правая колонка -->
+                <div class="case-content">
+                    <div class="case-header">
+                        <h1 id="client-name"></h1>
+                        <p class="case-subtitle" id="client-request"></p>
+                    </div>
+
+                    <div class="case-description">
+                        <ul class="case-bullets">
+                            <li id="client-challenge"></li>
+                        </ul>
+                    </div>
+
+                    <div class="case-solutions" id="client-solutions">
+                        <!-- Заполняется через JS -->
+                    </div>
+
+                    <div class="case-results">
+                        <h2 data-i18n="case_results">Results</h2>
+                        <div class="results-grid" id="client-results"></div>
+                    </div>
+
+                    <div class="case-testimonial" id="testimonial-section">
+                        <h2 data-i18n="case_testimonial">Testimonial</h2>
+                        <div class="testimonial-author" id="testimonial-author"></div>
+                        <blockquote class="testimonial-text" id="client-testimonial"></blockquote>
+                    </div>
+
+                    <div class="case-cta">
+                        <h3 data-i18n="case_cta_title">Want similar results?</h3>
+                        <a href="../../contact.html" class="btn primary" data-i18n="case_cta_button">Let's Talk</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
