@@ -4,9 +4,9 @@
     "logoFallback": "GMCS",
     "industry": "IT / Consulting",
     "solution": "Business Applications",
-    "platform": "WebSoft HCM, Axapta",
-    "duration": "6 months • 2023",
-    "tags": ["WebSoft HCM", "Axapta", "IT"],
+    "platform": "WebSoft HCM, Axapta, Bitrix24", "Timetta",
+    "duration": "1 year and 8 months • 2023",
+    "tags": ["WebSoft HCM", "Axapta", "IT", "Bitrix24", "Timetta"],
     "results": [
         { "number": "100%", "labelKey": "result_1" },
         { "number": "-40%", "labelKey": "result_2" },
@@ -63,7 +63,7 @@
         "result_3": "Внедрение пользователями",
         "result_4": "Система оценки",
         "testimonial": "Данил полностью трансформировал нашу операцию найма. Мы перешли от трудностей с заполнением вакансий к потоку квалифицированных кандидатов. Его системный подход изменил всё.",
-        "testimonialAuthor": "Алексей Петров",
+        "testimonialAuthor": "Галина Хруслова",
         "testimonialPosition": "HR Director, GMCS VerEx",
         "ctaTitle": "Хотите похожие результаты для вашей компании?"
     },
