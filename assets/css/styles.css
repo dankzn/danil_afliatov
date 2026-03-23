@@ -51,16 +51,19 @@
     --border: rgba(15, 23, 42, 0.22);
     --border-2: rgba(15, 23, 42, 0.32);
     --border-3: rgba(15, 23, 42, 0.42);
-    --accent-soft: rgba(99, 102, 241, 0.12);
-    --accent-soft-2: rgba(99, 102, 241, 0.18);
-    --accent-soft-3: rgba(99, 102, 241, 0.24);
-    --accent-border: rgba(99, 102, 241, 0.35);
-    --accent-border-2: rgba(99, 102, 241, 0.5);
-    --accent-border-3: rgba(99, 102, 241, 0.6);
-    --accent-glow-1: rgba(99, 102, 241, 0.18);
-    --accent-glow-2: rgba(99, 102, 241, 0.22);
-    --accent-shadow: rgba(99, 102, 241, 0.25);
-    --accent-shadow-strong: rgba(99, 102, 241, 0.35);
+    --accent: #4f46e5;
+    --accent-2: #4338ca;
+    --accent-3: #3730a3;
+    --accent-soft: rgba(79, 70, 229, 0.16);
+    --accent-soft-2: rgba(79, 70, 229, 0.22);
+    --accent-soft-3: rgba(79, 70, 229, 0.28);
+    --accent-border: rgba(79, 70, 229, 0.45);
+    --accent-border-2: rgba(79, 70, 229, 0.6);
+    --accent-border-3: rgba(79, 70, 229, 0.7);
+    --accent-glow-1: rgba(79, 70, 229, 0.22);
+    --accent-glow-2: rgba(79, 70, 229, 0.28);
+    --accent-shadow: rgba(79, 70, 229, 0.28);
+    --accent-shadow-strong: rgba(79, 70, 229, 0.38);
     --shadow-soft: rgba(15, 23, 42, 0.08);
     --shadow-strong: rgba(15, 23, 42, 0.25);
     --logo-box-bg: #f8fafc;
@@ -1094,9 +1097,12 @@ footer .container {
 
 .footer-container {
     display: grid;
-    grid-template-columns: 1.2fr repeat(2, 1fr);
-    gap: 40px;
+    grid-template-columns: minmax(260px, 1.2fr) minmax(220px, 1fr) minmax(200px, 0.9fr);
+    gap: 60px;
     align-items: start;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .footer-brand {
@@ -1135,9 +1141,14 @@ footer .container {
     color: var(--text-soft);
 }
 
-.footer-flag {
-    font-size: 16px;
-    line-height: 1;
+.footer-flag-img {
+    width: 26px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 6px var(--shadow-soft);
+    background: var(--surface);
 }
 
 .footer-link {
@@ -1156,6 +1167,9 @@ footer .container {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid var(--surface-2);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-text {
