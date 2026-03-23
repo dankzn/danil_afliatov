@@ -989,6 +989,46 @@ button:hover {
     padding: 60px 20px 100px;
 }
 
+/* ===== PRIVACY PAGE ===== */
+.policy {
+    padding-bottom: 80px;
+}
+
+.policy-section {
+    margin-bottom: 28px;
+}
+
+.policy h2 {
+    font-size: 26px;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.policy h3 {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.policy p,
+.policy li {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.policy ul {
+    margin: 10px 0 0 20px;
+}
+
+.policy a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.policy a:hover {
+    text-decoration: underline;
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1097,8 +1137,8 @@ footer .container {
 
 .footer-container {
     display: grid;
-    grid-template-columns: minmax(260px, 1.2fr) minmax(220px, 1fr) minmax(200px, 0.9fr);
-    gap: 60px;
+    grid-template-columns: minmax(240px, 1.2fr) repeat(3, minmax(180px, 0.85fr));
+    gap: 50px;
     align-items: start;
     max-width: 1200px;
     width: 100%;
@@ -1160,6 +1200,24 @@ footer .container {
 }
 
 .footer-link:hover {
+    color: var(--text);
+}
+
+.footer-link.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    width: fit-content;
+}
+
+.footer-link.button:hover {
+    border-color: var(--border-2);
+    background: var(--surface-3);
     color: var(--text);
 }
 
