@@ -1,15 +1,13 @@
 (function () {
     var root = document.documentElement;
     root.setAttribute('data-pride', 'off');
+    root.setAttribute('data-pride-allowed', 'unknown');
 
     function isPrideMonth() {
         var now = new Date();
         return now.getMonth() === 5; // June
     }
-
-    if (!isPrideMonth()) {
-        return;
-    }
+    var storageKey = 'pride_mode';
 
     function getBasePath() {
         var path = window.location.pathname || '';
@@ -89,7 +87,106 @@
         });
     }
 
+    function getStoredMode() {
+        try {
+            var saved = localStorage.getItem(storageKey);
+            if (saved === 'on' || saved === 'off' || saved === 'auto') {
+                return saved;
+            }
+        } catch (e) {
+            return 'auto';
+        }
+        return 'auto';
+    }
+
+    function setStoredMode(mode) {
+        try {
+            localStorage.setItem(storageKey, mode);
+        } catch (e) {
+            // ignore
+        }
+    }
+
+    function getModeFromUrl() {
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var value = params.get('pride');
+            if (!value) return null;
+            value = value.toLowerCase();
+            if (value === 'on' || value === 'off' || value === 'auto') {
+                return value;
+            }
+        } catch (e) {
+            return null;
+        }
+        return null;
+    }
+
+    function applyPrideMode(allowed, mode) {
+        if (!allowed) {
+            root.setAttribute('data-pride', 'off');
+            root.setAttribute('data-pride-allowed', 'false');
+            return;
+        }
+
+        root.setAttribute('data-pride-allowed', 'true');
+
+        if (mode === 'on') {
+            root.setAttribute('data-pride', 'on');
+            return;
+        }
+        if (mode === 'off') {
+            root.setAttribute('data-pride', 'off');
+            return;
+        }
+        root.setAttribute('data-pride', isPrideMonth() ? 'on' : 'off');
+    }
+
+    function updateToggle(allowed, mode) {
+        var toggle = document.getElementById('pride-toggle');
+        var label = document.getElementById('pride-toggle-label');
+        if (!toggle || !label) {
+            return;
+        }
+        if (!allowed) {
+            toggle.style.display = 'none';
+            return;
+        }
+        toggle.style.display = 'inline-flex';
+        var labelText = 'Pride: ';
+        if (mode === 'on') {
+            labelText += 'On';
+        } else if (mode === 'off') {
+            labelText += 'Off';
+        } else {
+            labelText += 'Auto';
+        }
+        label.textContent = labelText;
+    }
+
+    function wireToggle(allowed) {
+        var toggle = document.getElementById('pride-toggle');
+        if (!toggle) {
+            return;
+        }
+        if (!allowed) {
+            toggle.style.display = 'none';
+            return;
+        }
+        toggle.addEventListener('click', function () {
+            var mode = getStoredMode();
+            var next = mode === 'auto' ? 'on' : mode === 'on' ? 'off' : 'auto';
+            setStoredMode(next);
+            applyPrideMode(true, next);
+            updateToggle(true, next);
+        });
+    }
+
     var blocklistUrl = getBasePath() + 'assets/data/pride-blocklist.json';
+    var urlMode = getModeFromUrl();
+    if (urlMode) {
+        setStoredMode(urlMode);
+    }
 
     Promise.all([
         fetchJson(blocklistUrl),
@@ -100,13 +197,15 @@
             var geo = results[1] || {};
             var blockedSet = buildBlockSet(blocklist);
             var countryName = geo.country_name || geo.country || '';
-            if (shouldEnablePride(blockedSet, countryName)) {
-                root.setAttribute('data-pride', 'on');
-            } else {
-                root.setAttribute('data-pride', 'off');
-            }
+            var allowed = shouldEnablePride(blockedSet, countryName);
+            var mode = getStoredMode();
+            applyPrideMode(allowed, mode);
+            updateToggle(allowed, mode);
+            wireToggle(allowed);
         })
         .catch(function () {
             root.setAttribute('data-pride', 'off');
+            root.setAttribute('data-pride-allowed', 'false');
+            updateToggle(false, 'auto');
         });
 })();
