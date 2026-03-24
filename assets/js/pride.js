@@ -113,7 +113,7 @@
             var value = params.get('pride');
             if (!value) return null;
             value = value.toLowerCase();
-            if (value === 'on' || value === 'off' || value === 'auto') {
+            if (value === 'on' || value === 'off' || value === 'auto' || value === 'force') {
                 return value;
             }
         } catch (e) {
@@ -122,14 +122,27 @@
         return null;
     }
 
-    function applyPrideMode(allowed, mode) {
-        if (!allowed) {
+    function getForceToggle() {
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var flag = params.get('pride_test');
+            if (flag === '1' || flag === 'true') {
+                return true;
+            }
+        } catch (e) {
+            return false;
+        }
+        return false;
+    }
+
+    function applyPrideMode(allowed, mode, forceToggle) {
+        if (!allowed && !forceToggle) {
             root.setAttribute('data-pride', 'off');
             root.setAttribute('data-pride-allowed', 'false');
             return;
         }
 
-        root.setAttribute('data-pride-allowed', 'true');
+        root.setAttribute('data-pride-allowed', forceToggle ? 'test' : 'true');
 
         if (mode === 'on') {
             root.setAttribute('data-pride', 'on');
@@ -142,13 +155,13 @@
         root.setAttribute('data-pride', isPrideMonth() ? 'on' : 'off');
     }
 
-    function updateToggle(allowed, mode) {
+    function updateToggle(allowed, mode, forceToggle) {
         var toggle = document.getElementById('pride-toggle');
         var label = document.getElementById('pride-toggle-label');
         if (!toggle || !label) {
             return;
         }
-        if (!allowed) {
+        if (!allowed && !forceToggle) {
             toggle.style.display = 'none';
             return;
         }
@@ -164,12 +177,12 @@
         label.textContent = labelText;
     }
 
-    function wireToggle(allowed) {
+    function wireToggle(allowed, forceToggle) {
         var toggle = document.getElementById('pride-toggle');
         if (!toggle) {
             return;
         }
-        if (!allowed) {
+        if (!allowed && !forceToggle) {
             toggle.style.display = 'none';
             return;
         }
@@ -177,14 +190,15 @@
             var mode = getStoredMode();
             var next = mode === 'auto' ? 'on' : mode === 'on' ? 'off' : 'auto';
             setStoredMode(next);
-            applyPrideMode(true, next);
-            updateToggle(true, next);
+            applyPrideMode(true, next, forceToggle);
+            updateToggle(true, next, forceToggle);
         });
     }
 
     var blocklistUrl = getBasePath() + 'assets/data/pride-blocklist.json';
     var urlMode = getModeFromUrl();
-    if (urlMode) {
+    var forceToggle = getForceToggle() || urlMode === 'force';
+    if (urlMode && urlMode !== 'force') {
         setStoredMode(urlMode);
     }
 
@@ -199,13 +213,14 @@
             var countryName = geo.country_name || geo.country || '';
             var allowed = shouldEnablePride(blockedSet, countryName);
             var mode = getStoredMode();
-            applyPrideMode(allowed, mode);
-            updateToggle(allowed, mode);
-            wireToggle(allowed);
+            applyPrideMode(allowed, mode, forceToggle);
+            updateToggle(allowed, mode, forceToggle);
+            wireToggle(allowed, forceToggle);
         })
         .catch(function () {
-            root.setAttribute('data-pride', 'off');
-            root.setAttribute('data-pride-allowed', 'false');
-            updateToggle(false, 'auto');
+            var mode = getStoredMode();
+            applyPrideMode(false, mode, forceToggle);
+            updateToggle(false, mode, forceToggle);
+            wireToggle(false, forceToggle);
         });
 })();
