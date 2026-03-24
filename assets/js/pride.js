@@ -157,11 +157,11 @@
 
     function updateToggle(allowed, mode, forceToggle) {
         var toggle = document.getElementById('pride-toggle');
-        var label = document.getElementById('pride-toggle-label');
-        if (!toggle || !label) {
+        if (!toggle) {
             return;
         }
-        if (!allowed && !forceToggle) {
+        var showToggle = forceToggle || (allowed && isPrideMonth());
+        if (!showToggle) {
             toggle.style.display = 'none';
             return;
         }
@@ -174,7 +174,8 @@
         } else {
             labelText += 'Auto';
         }
-        label.textContent = labelText;
+        toggle.setAttribute('title', labelText);
+        toggle.setAttribute('aria-label', labelText);
     }
 
     function wireToggle(allowed, forceToggle) {
@@ -182,7 +183,8 @@
         if (!toggle) {
             return;
         }
-        if (!allowed && !forceToggle) {
+        var showToggle = forceToggle || (allowed && isPrideMonth());
+        if (!showToggle) {
             toggle.style.display = 'none';
             return;
         }

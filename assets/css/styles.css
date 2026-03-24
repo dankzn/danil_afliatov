@@ -545,7 +545,6 @@ button:hover {
     border: 1px solid var(--border-2);
     color: var(--text-soft);
     cursor: pointer;
-    display: inline-flex;
     align-items: center;
     justify-content: center;
     min-width: 44px;
@@ -559,18 +558,23 @@ button:hover {
 .pride-toggle {
     display: none;
     margin-left: 0;
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 8px;
     background: var(--surface-2);
     border: 1px solid var(--border-2);
     color: var(--text-soft);
     cursor: pointer;
-    font-size: 12px;
-    letter-spacing: 0.2px;
+    font-size: 18px;
+    line-height: 1;
+    min-width: 42px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
 }
 
-.pride-toggle-label {
+.pride-toggle-flag {
     display: inline-block;
 }
 
