@@ -566,6 +566,67 @@ button:hover {
     margin-bottom: 20px;
 }
 
+/* ===== FAQ ===== */
+.faq {
+    padding: 40px 20px 80px;
+}
+
+.faq h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+
+.faq-list {
+    display: grid;
+    gap: 14px;
+}
+
+.faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: 0.3s;
+}
+
+.faq-item[open] {
+    border-color: var(--accent-border);
+    background: var(--surface-2);
+}
+
+.faq-item summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+    list-style: none;
+    position: relative;
+    padding-right: 28px;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--accent-2);
+    font-weight: 700;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item p {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
 /* ===== CONTAINER ===== */
 .container { 
     max-width: 1000px; 
