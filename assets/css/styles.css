@@ -450,6 +450,76 @@ button:hover {
     line-height: 1.6;
 }
 
+/* ===== MINI CASES ===== */
+.mini-cases {
+    padding: 30px 20px 40px;
+}
+
+.mini-cases h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.mini-cases-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.mini-case-card {
+    padding: 22px;
+    border-radius: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.mini-case-card:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-4px);
+}
+
+.mini-case-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.mini-case-header h3 {
+    font-size: 18px;
+    color: var(--text);
+}
+
+.mini-case-tag {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--accent-soft-2);
+    border: 1px solid var(--accent-border);
+    color: var(--accent-2);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.mini-case-result {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.mini-case-link {
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.mini-case-link:hover {
+    color: var(--accent);
+}
+
 /* ===== VALUE ===== */
 .value {
     padding: 50px 20px;
@@ -540,6 +610,85 @@ button:hover {
     font-size: 12px;
 }
 
+/* ===== DELIVERABLES ===== */
+.deliverables {
+    padding: 40px 20px 50px;
+}
+
+.deliverables h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.deliverables-grid {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.deliverable-item {
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ===== STACK ===== */
+.stack {
+    padding: 40px 20px 50px;
+}
+
+.stack h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.stack-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stack-group {
+    padding: 18px;
+    border-radius: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.stack-group h3 {
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.stack-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.stack-pills span {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-2);
+    border: 1px solid var(--accent-border);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.stack-note {
+    margin-top: 16px;
+    color: var(--text-muted-2);
+    font-size: 13px;
+}
+
 /* ===== CTA ===== */
 .cta {
     padding: 40px 20px 80px;
@@ -564,6 +713,13 @@ button:hover {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 20px;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* ===== FAQ ===== */
@@ -1672,8 +1828,11 @@ footer .container {
     .cases-grid,
     .clients-grid,
     .metrics-grid,
+    .mini-cases-grid,
     .value-grid,
     .process-steps,
+    .deliverables-grid,
+    .stack-grid,
     .trust-logos {
         grid-template-columns: 1fr;
     }
