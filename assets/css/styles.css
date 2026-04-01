@@ -4,7 +4,7 @@
 /* ===== THEME ===== */
 :root {
     color-scheme: dark;
-    --header-offset: 96px;
+    --header-offset: 80px;
     --bg-gradient: radial-gradient(circle at top, #141414, #070707);
     --text: #f7f7f7;
     --text-soft: #ececec;
@@ -156,11 +156,10 @@ nav {
 }
 
 .brand-logo-main {
-    width: 220px;
-    height: 44px;
+    width: auto;
+    height: 42px;
     border-radius: 0;
-    object-fit: cover;
-    object-position: left 70%;
+    object-fit: contain;
     box-shadow: none;
 }
 
@@ -1919,7 +1918,7 @@ footer .container {
 
 @media (max-width: 768px) {
     :root {
-        --header-offset: 118px;
+        --header-offset: 106px;
     }
 
     nav {
@@ -2017,8 +2016,8 @@ footer .container {
     }
 
     .brand-logo-main {
-        min-width: 170px;
-        height: 38px;
+        min-width: 150px;
+        height: 36px;
     }
 
     .brand-logo-compact,
