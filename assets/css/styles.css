@@ -156,10 +156,11 @@ nav {
 }
 
 .brand-logo-main {
-    width: auto;
-    height: 62px;
+    width: 220px;
+    height: 44px;
     border-radius: 0;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: left 70%;
     box-shadow: none;
 }
 
@@ -2016,8 +2017,8 @@ footer .container {
     }
 
     .brand-logo-main {
-        min-width: 160px;
-        height: 44px;
+        min-width: 170px;
+        height: 38px;
     }
 
     .brand-logo-compact,
