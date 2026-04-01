@@ -4,32 +4,32 @@
 /* ===== THEME ===== */
 :root {
     color-scheme: dark;
-    --bg-gradient: radial-gradient(circle at top, #0f0f0f, #000000);
-    --text: #ffffff;
-    --text-soft: #e5e5e5;
-    --text-muted: #b3b3b3;
-    --text-muted-2: #8f8f8f;
-    --nav-bg: rgba(10, 10, 10, 0.85);
-    --menu-bg: rgba(10, 10, 10, 0.95);
-    --surface: #1a1a1a;
-    --surface-2: #202020;
-    --surface-3: #262626;
-    --border: rgba(255, 255, 255, 0.08);
-    --border-2: rgba(255, 255, 255, 0.12);
-    --border-3: rgba(255, 255, 255, 0.2);
+    --bg-gradient: radial-gradient(circle at top, #141414, #070707);
+    --text: #f7f7f7;
+    --text-soft: #ececec;
+    --text-muted: #b9b9b9;
+    --text-muted-2: #8e8e8e;
+    --nav-bg: rgba(8, 8, 8, 0.9);
+    --menu-bg: rgba(8, 8, 8, 0.96);
+    --surface: #151515;
+    --surface-2: #1d1d1d;
+    --surface-3: #252525;
+    --border: rgba(255, 255, 255, 0.09);
+    --border-2: rgba(255, 255, 255, 0.15);
+    --border-3: rgba(255, 255, 255, 0.24);
     --accent: #006400;
-    --accent-2: #008000;
-    --accent-3: #003300;
-    --accent-soft: rgba(0, 100, 0, 0.16);
-    --accent-soft-2: rgba(0, 100, 0, 0.22);
-    --accent-soft-3: rgba(0, 100, 0, 0.3);
-    --accent-border: rgba(0, 100, 0, 0.35);
-    --accent-border-2: rgba(0, 100, 0, 0.5);
-    --accent-border-3: rgba(0, 100, 0, 0.65);
-    --accent-glow-1: rgba(0, 100, 0, 0.25);
-    --accent-glow-2: rgba(0, 100, 0, 0.35);
-    --accent-shadow: rgba(0, 100, 0, 0.3);
-    --accent-shadow-strong: rgba(0, 100, 0, 0.45);
+    --accent-2: #0b7a42;
+    --accent-3: #043a22;
+    --accent-soft: rgba(0, 100, 0, 0.14);
+    --accent-soft-2: rgba(0, 100, 0, 0.2);
+    --accent-soft-3: rgba(0, 100, 0, 0.28);
+    --accent-border: rgba(0, 100, 0, 0.3);
+    --accent-border-2: rgba(0, 100, 0, 0.45);
+    --accent-border-3: rgba(0, 100, 0, 0.6);
+    --accent-glow-1: rgba(0, 100, 0, 0.2);
+    --accent-glow-2: rgba(0, 100, 0, 0.32);
+    --accent-shadow: rgba(0, 100, 0, 0.25);
+    --accent-shadow-strong: rgba(0, 100, 0, 0.4);
     --shadow-soft: rgba(0, 0, 0, 0.3);
     --shadow-strong: rgba(0, 0, 0, 0.7);
     --logo-box-bg: #ffffff;
@@ -39,34 +39,34 @@
 
 [data-theme="light"] {
     color-scheme: light;
-    --bg-gradient: radial-gradient(circle at top, #ffffff, #f2f2f2);
-    --text: #1a1a1a;
-    --text-soft: #1a1a1a;
-    --text-muted: #4a4a4a;
-    --text-muted-2: #6b6b6b;
-    --nav-bg: rgba(255, 255, 255, 0.92);
+    --bg-gradient: radial-gradient(circle at top, #ffffff, #f4f5f2);
+    --text: #171b17;
+    --text-soft: #1f241f;
+    --text-muted: #4b534b;
+    --text-muted-2: #667066;
+    --nav-bg: rgba(255, 255, 255, 0.94);
     --menu-bg: rgba(255, 255, 255, 0.98);
-    --surface: rgba(0, 100, 0, 0.06);
-    --surface-2: rgba(0, 100, 0, 0.1);
-    --surface-3: rgba(0, 100, 0, 0.16);
-    --border: rgba(0, 100, 0, 0.18);
-    --border-2: rgba(0, 100, 0, 0.28);
-    --border-3: rgba(0, 100, 0, 0.4);
+    --surface: #f2f3f1;
+    --surface-2: #e9ece8;
+    --surface-3: #e0e4df;
+    --border: rgba(20, 40, 20, 0.12);
+    --border-2: rgba(20, 40, 20, 0.2);
+    --border-3: rgba(20, 40, 20, 0.28);
     --accent: #006400;
-    --accent-2: #008000;
-    --accent-3: #003300;
-    --accent-soft: rgba(0, 100, 0, 0.14);
-    --accent-soft-2: rgba(0, 100, 0, 0.2);
-    --accent-soft-3: rgba(0, 100, 0, 0.28);
-    --accent-border: rgba(0, 100, 0, 0.4);
-    --accent-border-2: rgba(0, 100, 0, 0.55);
-    --accent-border-3: rgba(0, 100, 0, 0.7);
-    --accent-glow-1: rgba(0, 100, 0, 0.18);
-    --accent-glow-2: rgba(0, 100, 0, 0.26);
-    --accent-shadow: rgba(0, 100, 0, 0.22);
+    --accent-2: #0b7a42;
+    --accent-3: #043a22;
+    --accent-soft: rgba(0, 100, 0, 0.08);
+    --accent-soft-2: rgba(0, 100, 0, 0.14);
+    --accent-soft-3: rgba(0, 100, 0, 0.2);
+    --accent-border: rgba(0, 100, 0, 0.25);
+    --accent-border-2: rgba(0, 100, 0, 0.4);
+    --accent-border-3: rgba(0, 100, 0, 0.55);
+    --accent-glow-1: rgba(0, 100, 0, 0.12);
+    --accent-glow-2: rgba(0, 100, 0, 0.2);
+    --accent-shadow: rgba(0, 100, 0, 0.2);
     --accent-shadow-strong: rgba(0, 100, 0, 0.32);
     --shadow-soft: rgba(15, 23, 42, 0.08);
-    --shadow-strong: rgba(15, 23, 42, 0.2);
+    --shadow-strong: rgba(15, 23, 42, 0.18);
     --logo-box-bg: #ffffff;
     --input-bg: rgba(255, 255, 255, 0.9);
 }
@@ -137,9 +137,10 @@ nav {
 
 .brand-logo {
     display: block;
-    height: 46px;
-    width: auto;
-    border-radius: 14px;
+    height: 52px;
+    width: 52px;
+    object-fit: cover;
+    border-radius: 16px;
     transition: opacity 0.25s ease, transform 0.25s ease;
     grid-area: 1 / 1;
 }
@@ -149,9 +150,14 @@ nav {
 .brand-logo-compact-pride {
     opacity: 0;
     height: 40px;
+    width: 40px;
     border-radius: 12px;
     transform: scale(0.94);
     pointer-events: none;
+}
+
+html[data-theme="light"] .brand-logo {
+    box-shadow: 0 10px 24px rgba(15, 17, 15, 0.12);
 }
 
 html.nav-compact .brand-logo-main {
@@ -296,9 +302,8 @@ button:hover {
     font-size: 56px; 
     font-weight: 800; 
     line-height: 1.2;
-    background: linear-gradient(90deg, var(--accent-2), var(--accent)); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
+    color: var(--text);
+    letter-spacing: -0.5px;
     margin-bottom: 20px; 
 }
 
@@ -325,11 +330,12 @@ button:hover {
 }
 
 .btn.primary { 
-    background: linear-gradient(90deg, var(--accent), var(--accent-3)); 
+    background: var(--accent); 
     color: white; 
     box-shadow: 0 10px 30px var(--accent-shadow); 
 }
 .btn.primary:hover { 
+    background: var(--accent-2);
     transform: translateY(-2px); 
     box-shadow: 0 15px 40px var(--accent-shadow-strong); 
 }
@@ -348,9 +354,9 @@ button:hover {
     padding: 6px 14px; 
     font-size: 13px; 
     border-radius: 999px; 
-    background: var(--accent-soft-2); 
-    color: var(--accent-2); 
-    border: 1px solid var(--accent-border); 
+    background: var(--surface-2); 
+    color: var(--text-muted); 
+    border: 1px solid var(--border-2); 
 }
 
 .hero-stats { 
@@ -360,7 +366,7 @@ button:hover {
 }
 .hero-stats h3 { 
     font-size: 28px; 
-    color: var(--accent-2); 
+    color: var(--text); 
 }
 .hero-stats p { 
     font-size: 14px; 
@@ -1169,9 +1175,7 @@ button:hover {
 .page-header h1 {
     font-size: 48px;
     font-weight: 800;
-    background: linear-gradient(90deg, var(--accent-2), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text);
     margin-bottom: 15px;
 }
 
@@ -1524,9 +1528,7 @@ button:hover {
 .result-number {
     font-size: 36px;
     font-weight: 800;
-    background: linear-gradient(90deg, var(--accent-2), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--accent);
     margin-bottom: 8px;
 }
 
@@ -1983,12 +1985,14 @@ footer .container {
 
     .brand-logo {
         height: 38px;
+        width: 38px;
     }
 
     .brand-logo-compact,
     .brand-logo-compact-dark,
     .brand-logo-compact-pride {
         height: 34px;
+        width: 34px;
     }
 
     .footer-container {
