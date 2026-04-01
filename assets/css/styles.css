@@ -157,7 +157,7 @@ nav {
 
 .brand-logo-main {
     width: auto;
-    height: 42px;
+    height: 46px;
     border-radius: 0;
     object-fit: contain;
     box-shadow: none;
@@ -2017,7 +2017,7 @@ footer .container {
 
     .brand-logo-main {
         min-width: 150px;
-        height: 36px;
+        height: 40px;
     }
 
     .brand-logo-compact,
