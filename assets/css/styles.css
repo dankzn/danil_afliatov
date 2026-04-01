@@ -4,7 +4,7 @@
 /* ===== THEME ===== */
 :root {
     color-scheme: dark;
-    --header-offset: 86px;
+    --header-offset: 96px;
     --bg-gradient: radial-gradient(circle at top, #141414, #070707);
     --text: #f7f7f7;
     --text-soft: #ececec;
@@ -157,9 +157,10 @@ nav {
 
 .brand-logo-main {
     width: auto;
-    height: 54px;
-    border-radius: 10px;
+    height: 62px;
+    border-radius: 0;
     object-fit: contain;
+    box-shadow: none;
 }
 
 .brand-logo-compact,
@@ -175,6 +176,11 @@ nav {
 
 html[data-theme="light"] .brand-logo {
     box-shadow: 0 10px 24px rgba(15, 17, 15, 0.12);
+}
+
+html[data-theme="light"] .brand-logo-main,
+html[data-theme="dark"] .brand-logo-main {
+    box-shadow: none;
 }
 
 html.nav-compact .brand-logo-main {
@@ -1912,7 +1918,7 @@ footer .container {
 
 @media (max-width: 768px) {
     :root {
-        --header-offset: 128px;
+        --header-offset: 118px;
     }
 
     nav {
@@ -2010,8 +2016,8 @@ footer .container {
     }
 
     .brand-logo-main {
-        min-width: 150px;
-        height: 38px;
+        min-width: 160px;
+        height: 44px;
     }
 
     .brand-logo-compact,
