@@ -476,6 +476,8 @@ button:hover {
     position: relative;
     overflow: hidden;
     box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+    display: flex;
+    flex-direction: column;
 }
 
 .mini-case-card:hover {
@@ -501,6 +503,7 @@ button:hover {
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 12px;
+    min-height: 40px;
 }
 
 .mini-case-header h3 {
@@ -522,6 +525,7 @@ button:hover {
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 12px;
+    min-height: 64px;
 }
 
 .mini-case-logo {
@@ -533,6 +537,7 @@ button:hover {
     background: #ffffff;
     border: 1px solid rgba(15, 23, 42, 0.1);
     box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+    min-height: 52px;
 }
 
 .mini-case-logo img {
@@ -568,6 +573,7 @@ button:hover {
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 18px;
+    min-height: 56px;
 }
 
 .mini-case-link {
@@ -577,6 +583,7 @@ button:hover {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    margin-top: auto;
 }
 
 .mini-case-link:hover {
