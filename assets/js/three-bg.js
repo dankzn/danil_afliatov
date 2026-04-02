@@ -13,10 +13,10 @@
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
     camera.position.set(0, 1.2, 9);
 
-    const lineCount = 22;
-    const points = 220;
-    const width = 14;
-    const depth = 7;
+    const lineCount = 32;
+    const points = 260;
+    const width = 16;
+    const depth = 9;
 
     const lines = [];
     const color = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#006400');
@@ -38,7 +38,7 @@
         const material = new THREE.LineBasicMaterial({
             color,
             transparent: true,
-            opacity: 0.22,
+            opacity: 0.36,
             blending: THREE.AdditiveBlending
         });
         const line = new THREE.Line(geometry, material);
@@ -62,13 +62,13 @@
     let lastTheme = document.documentElement.getAttribute('data-theme');
 
     function animate() {
-        const t = performance.now() * 0.0006;
+        const t = performance.now() * 0.0005;
 
         lines.forEach(({ line, positions, z }) => {
             for (let j = 0; j < points; j += 1) {
                 const idx = j * 3;
                 const x = positions[idx];
-                const wave = Math.sin(x * 0.8 + t * 2 + z) * 0.6 + Math.cos(x * 1.6 - t * 1.4 + z * 0.7) * 0.25;
+                const wave = Math.sin(x * 0.7 + t * 2 + z) * 0.75 + Math.cos(x * 1.3 - t * 1.2 + z * 0.9) * 0.32;
                 positions[idx + 1] = wave;
             }
             line.geometry.attributes.position.needsUpdate = true;
