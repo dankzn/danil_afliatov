@@ -17,66 +17,82 @@
     });
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.set(0, 1.1, 8);
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+    camera.position.z = 2;
 
-    const lineCount = 52;
-    const points = 260;
-    const width = 20;
-    const depth = 10;
+    const lineCount = 80;
+    const points = 220;
+    const width = 16;
+    const height = 9;
+    const amplitude = 0.6;
 
+    const baseColor = new THREE.Color('#0b7a42');
     const lines = [];
-    const color = new THREE.Color('#0b7a42');
+
+    function noise(x, y, t) {
+        return (
+            Math.sin(x * 0.35 + t * 1.2) * 0.5 +
+            Math.cos(y * 0.45 - t * 0.9) * 0.35 +
+            Math.sin((x + y) * 0.18 + t * 0.6) * 0.25
+        );
+    }
 
     for (let i = 0; i < lineCount; i += 1) {
         const geometry = new THREE.BufferGeometry();
         const positions = new Float32Array(points * 3);
-        const z = (i / (lineCount - 1) - 0.5) * depth;
+        const baseY = (i / (lineCount - 1) - 0.5) * height;
 
         for (let j = 0; j < points; j += 1) {
             const x = (j / (points - 1) - 0.5) * width;
             const idx = j * 3;
             positions[idx] = x;
-            positions[idx + 1] = 0;
-            positions[idx + 2] = z;
+            positions[idx + 1] = baseY;
+            positions[idx + 2] = 0;
         }
 
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         const material = new THREE.LineBasicMaterial({
-            color,
+            color: baseColor,
             transparent: true,
-            opacity: 0.9,
+            opacity: 0.35 + (i / lineCount) * 0.35,
             blending: THREE.AdditiveBlending
         });
         const line = new THREE.Line(geometry, material);
         scene.add(line);
-        lines.push({ line, positions, z });
+        lines.push({ line, positions, baseY, phase: i * 0.2 });
     }
 
     function resize() {
         const { innerWidth: w, innerHeight: h } = window;
         renderer.setSize(w, h, false);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-        camera.aspect = w / h;
+        const aspect = w / h;
+        camera.left = -width * 0.5 * aspect;
+        camera.right = width * 0.5 * aspect;
+        camera.top = height * 0.5;
+        camera.bottom = -height * 0.5;
         camera.updateProjectionMatrix();
     }
 
     function updateColors() {
-        const nextColor = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#006400');
+        const accent = getComputedStyle(document.documentElement)
+            .getPropertyValue('--accent-2')
+            .trim();
+        const nextColor = new THREE.Color(accent || '#0b7a42');
         lines.forEach(({ line }) => line.material.color.copy(nextColor));
     }
 
     let lastTheme = document.documentElement.getAttribute('data-theme');
 
     function animate() {
-        const t = performance.now() * 0.0005;
+        const t = performance.now() * 0.0007;
 
-        lines.forEach(({ line, positions, z }) => {
+        lines.forEach(({ line, positions, baseY, phase }) => {
             for (let j = 0; j < points; j += 1) {
                 const idx = j * 3;
                 const x = positions[idx];
-                const wave = Math.sin(x * 0.6 + t * 2.2 + z) * 1.2 + Math.cos(x * 1.05 - t * 1.3 + z * 0.95) * 0.6;
-                positions[idx + 1] = wave;
+                const yOffset = noise(x * 0.55, baseY * 0.75, t + phase) * amplitude;
+                positions[idx + 1] = baseY + yOffset;
             }
             line.geometry.attributes.position.needsUpdate = true;
         });
