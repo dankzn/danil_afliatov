@@ -20,13 +20,13 @@
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
     camera.position.set(0, 1.1, 8);
 
-    const lineCount = 36;
+    const lineCount = 52;
     const points = 260;
-    const width = 18;
-    const depth = 9;
+    const width = 20;
+    const depth = 10;
 
     const lines = [];
-    const color = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim() || '#0b7a42');
+    const color = new THREE.Color('#0b7a42');
 
     for (let i = 0; i < lineCount; i += 1) {
         const geometry = new THREE.BufferGeometry();
@@ -45,8 +45,8 @@
         const material = new THREE.LineBasicMaterial({
             color,
             transparent: true,
-            opacity: 0.55,
-            blending: THREE.NormalBlending
+            opacity: 0.9,
+            blending: THREE.AdditiveBlending
         });
         const line = new THREE.Line(geometry, material);
         scene.add(line);
@@ -75,7 +75,7 @@
             for (let j = 0; j < points; j += 1) {
                 const idx = j * 3;
                 const x = positions[idx];
-                const wave = Math.sin(x * 0.65 + t * 2 + z) * 1.1 + Math.cos(x * 1.1 - t * 1.15 + z * 0.95) * 0.5;
+                const wave = Math.sin(x * 0.6 + t * 2.2 + z) * 1.2 + Math.cos(x * 1.05 - t * 1.3 + z * 0.95) * 0.6;
                 positions[idx + 1] = wave;
             }
             line.geometry.attributes.position.needsUpdate = true;

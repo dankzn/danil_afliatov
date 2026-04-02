@@ -36,7 +36,7 @@
     --logo-box-bg: #ffffff;
     --input-bg: rgba(0, 0, 0, 0.6);
     --pride-gradient: linear-gradient(90deg, #e40303, #ff8c00, #ffed00, #008026, #004cff, #732982);
-    --scene-overlay: linear-gradient(180deg, rgba(6, 6, 6, 0.18), rgba(6, 6, 6, 0.4));
+    --scene-overlay: linear-gradient(180deg, rgba(6, 6, 6, 0.08), rgba(6, 6, 6, 0.28));
 }
 
 [data-theme="light"] {
@@ -71,7 +71,7 @@
     --shadow-strong: rgba(15, 23, 42, 0.18);
     --logo-box-bg: #ffffff;
     --input-bg: rgba(255, 255, 255, 0.9);
-    --scene-overlay: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(244, 245, 242, 0.55));
+    --scene-overlay: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(244, 245, 242, 0.38));
 }
 
 /* ===== PRIDE ===== */
@@ -114,12 +114,23 @@ body {
     background: var(--bg-gradient);
 }
 
+.scene-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0, 100, 0, 0.18), transparent 55%),
+        radial-gradient(circle at 80% 30%, rgba(0, 100, 0, 0.12), transparent 60%),
+        repeating-linear-gradient(115deg, rgba(0, 100, 0, 0.08) 0 2px, transparent 2px 22px);
+    opacity: 0.45;
+}
+
 .scene-bg canvas {
     width: 100%;
     height: 100%;
     display: block;
-    opacity: 0.95;
-    filter: saturate(1.15) contrast(1.05);
+    opacity: 1;
+    filter: saturate(1.25) contrast(1.15);
 }
 
 .scene-overlay {
