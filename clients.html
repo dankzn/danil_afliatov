@@ -25,9 +25,9 @@
 
 </head>
 <body>
-    <div class="spline-bg" aria-hidden="true">
-        <spline-viewer url="https://prod.spline.design/f5ZbZ2EvZOf2SYa4/scene.splinecode"></spline-viewer>
-        <div class="spline-overlay"></div>
+    <div class="scene-bg" aria-hidden="true">
+        <canvas id="three-bg"></canvas>
+        <div class="scene-overlay"></div>
     </div>
     <header>
         <nav>
@@ -199,6 +199,7 @@
 </script>
     </div>
 
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.73/build/spline-viewer.js"></script>
+        <script src="https://unpkg.com/three@0.164.1/build/three.min.js"></script>
+    <script src="assets/js/three-bg.js"></script>
 </body>
 </html>
