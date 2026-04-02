@@ -1,6 +1,13 @@
 (() => {
-    const canvas = document.getElementById('three-bg');
-    if (!canvas || !window.THREE) return;
+    const container = document.querySelector('.scene-bg');
+    if (!container || !window.THREE) return;
+
+    let canvas = container.querySelector('canvas');
+    if (!canvas) {
+        canvas = document.createElement('canvas');
+        canvas.id = 'three-bg';
+        container.prepend(canvas);
+    }
 
     const renderer = new THREE.WebGLRenderer({
         canvas,
@@ -11,15 +18,15 @@
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.set(0, 1.2, 9);
+    camera.position.set(0, 1.1, 8);
 
-    const lineCount = 32;
+    const lineCount = 36;
     const points = 260;
-    const width = 16;
+    const width = 18;
     const depth = 9;
 
     const lines = [];
-    const color = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#006400');
+    const color = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim() || '#0b7a42');
 
     for (let i = 0; i < lineCount; i += 1) {
         const geometry = new THREE.BufferGeometry();
@@ -38,8 +45,8 @@
         const material = new THREE.LineBasicMaterial({
             color,
             transparent: true,
-            opacity: 0.36,
-            blending: THREE.AdditiveBlending
+            opacity: 0.55,
+            blending: THREE.NormalBlending
         });
         const line = new THREE.Line(geometry, material);
         scene.add(line);
@@ -68,7 +75,7 @@
             for (let j = 0; j < points; j += 1) {
                 const idx = j * 3;
                 const x = positions[idx];
-                const wave = Math.sin(x * 0.7 + t * 2 + z) * 0.75 + Math.cos(x * 1.3 - t * 1.2 + z * 0.9) * 0.32;
+                const wave = Math.sin(x * 0.65 + t * 2 + z) * 1.1 + Math.cos(x * 1.1 - t * 1.15 + z * 0.95) * 0.5;
                 positions[idx + 1] = wave;
             }
             line.geometry.attributes.position.needsUpdate = true;
