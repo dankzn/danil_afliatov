@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
+    <div class="spline-bg" aria-hidden="true">
+        <spline-viewer url="https://prod.spline.design/f5ZbZ2EvZOf2SYa4/scene.splinecode"></spline-viewer>
+        <div class="spline-overlay"></div>
+    </div>
     <header>
         <nav>
             <a href="../../index.html" class="logo" aria-label="Aflyatov Danil">
@@ -50,6 +54,8 @@
             </div>
         </nav>
     </header>
+
+    <div class="page-shell">
 
     <section class="case-hero">
         <div class="container">
@@ -162,5 +168,8 @@
     <script src="../../assets/js/nav.js"></script>
     <script src="../../assets/js/footer.js"></script>
     <script src="client.js"></script>
+    </div>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.73/build/spline-viewer.js"></script>
 </body>
 </html>

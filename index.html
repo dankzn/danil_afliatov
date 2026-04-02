@@ -34,6 +34,10 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+    <div class="spline-bg" aria-hidden="true">
+        <spline-viewer url="https://prod.spline.design/f5ZbZ2EvZOf2SYa4/scene.splinecode"></spline-viewer>
+        <div class="spline-overlay"></div>
+    </div>
     <header>
         <nav>
             <a href="index.html" class="logo" aria-label="Aflyatov Danil">
@@ -71,6 +75,8 @@
         </nav>
     </header>
 
+    <div class="page-shell">
+
     <section class="hero">
         <div class="hero-container">
             <!-- ЛЕВАЯ ЧАСТЬ -->
@@ -102,14 +108,10 @@
             
             <!-- ПРАВАЯ ЧАСТЬ -->
             <div class="hero-right">
-                <div class="hero-spline-wrapper" aria-hidden="true">
-                    <spline-viewer url="https://prod.spline.design/f5ZbZ2EvZOf2SYa4/scene.splinecode"></spline-viewer>
+                <div class="hero-image-wrapper">
+                    <!-- Убедись, что картинка существует по этому пути -->
+                    <img src="./assets/profile.jpg" alt="Danil Afliatov" width="340" height="420" loading="eager">
                 </div>
-                <noscript>
-                    <div class="hero-image-wrapper">
-                        <img src="./assets/profile.jpg" alt="Danil Afliatov" width="340" height="420" loading="eager">
-                    </div>
-                </noscript>
             </div>
         </div>
     </section>
@@ -403,5 +405,7 @@
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.73/build/spline-viewer.js"></script>
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/footer.js"></script>
+    </div>
+
 </body>
 </html>

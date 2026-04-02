@@ -36,6 +36,7 @@
     --logo-box-bg: #ffffff;
     --input-bg: rgba(0, 0, 0, 0.6);
     --pride-gradient: linear-gradient(90deg, #e40303, #ff8c00, #ffed00, #008026, #004cff, #732982);
+    --spline-overlay: linear-gradient(180deg, rgba(6, 6, 6, 0.62), rgba(6, 6, 6, 0.82));
 }
 
 [data-theme="light"] {
@@ -70,6 +71,7 @@
     --shadow-strong: rgba(15, 23, 42, 0.18);
     --logo-box-bg: #ffffff;
     --input-bg: rgba(255, 255, 255, 0.9);
+    --spline-overlay: linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(244, 245, 242, 0.9));
 }
 
 /* ===== PRIDE ===== */
@@ -99,9 +101,33 @@ html[data-pride="on"] .nav-links a::after {
 /* ===== BODY ===== */
 body { 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-    background: var(--bg-gradient); 
+    background: transparent; 
     color: var(--text); 
     padding-top: var(--header-offset);
+}
+
+.spline-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.spline-bg spline-viewer {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.spline-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--spline-overlay);
+}
+
+.page-shell {
+    position: relative;
+    z-index: 1;
 }
 
 a:focus-visible,
