@@ -185,6 +185,7 @@ nav {
     margin-right: auto;
     position: relative;
     height: 100%;
+    overflow: visible;
 }
 
 .logo::before,
@@ -192,23 +193,23 @@ nav {
     content: "";
     position: absolute;
     top: 50%;
-    height: 70%;
-    width: 120px;
+    height: 100%;
+    width: 140px;
     transform: translateY(-50%);
-    filter: blur(10px);
-    opacity: 0.75;
+    filter: none;
+    opacity: 1;
     z-index: 0;
     pointer-events: none;
 }
 
 .logo::before {
-    left: -80px;
-    background: linear-gradient(90deg, transparent, rgba(0, 100, 0, 0.45));
+    left: -140px;
+    background: linear-gradient(90deg, transparent, #006400);
 }
 
 .logo::after {
-    right: -80px;
-    background: linear-gradient(90deg, rgba(0, 100, 0, 0.45), transparent);
+    right: -140px;
+    background: linear-gradient(90deg, #006400, transparent);
 }
 
 html.nav-compact .logo::before,
