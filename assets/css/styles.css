@@ -188,32 +188,23 @@ nav {
     overflow: visible;
 }
 
-.logo::before,
-.logo::after {
+.logo::before {
     content: "";
     position: absolute;
-    top: 50%;
-    height: 100%;
-    width: 140px;
-    transform: translateY(-50%);
-    filter: none;
-    opacity: 1;
+    inset: -6px -60px;
+    background-image: var(--logo-main-url);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    filter: blur(16px);
+    opacity: 0.45;
+    transform: scaleX(1.15);
+    transform-origin: left center;
     z-index: 0;
     pointer-events: none;
 }
 
-.logo::before {
-    left: -140px;
-    background: linear-gradient(90deg, transparent, #006400);
-}
-
-.logo::after {
-    right: -140px;
-    background: linear-gradient(90deg, #006400, transparent);
-}
-
-html.nav-compact .logo::before,
-html.nav-compact .logo::after {
+html.nav-compact .logo::before {
     opacity: 0;
 }
 
