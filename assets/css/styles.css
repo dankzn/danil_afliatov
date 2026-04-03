@@ -187,6 +187,35 @@ nav {
     height: 100%;
 }
 
+.logo::before,
+.logo::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 70%;
+    width: 120px;
+    transform: translateY(-50%);
+    filter: blur(10px);
+    opacity: 0.75;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.logo::before {
+    left: -80px;
+    background: linear-gradient(90deg, transparent, rgba(0, 100, 0, 0.45));
+}
+
+.logo::after {
+    right: -80px;
+    background: linear-gradient(90deg, rgba(0, 100, 0, 0.45), transparent);
+}
+
+html.nav-compact .logo::before,
+html.nav-compact .logo::after {
+    opacity: 0;
+}
+
 .brand-logo {
     display: block;
     height: 56px;
@@ -202,13 +231,9 @@ nav {
     height: 100%;
     border-radius: 0;
     object-fit: contain;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
     box-shadow: none;
+    position: relative;
+    z-index: 1;
 }
 
 .brand-logo-compact,
