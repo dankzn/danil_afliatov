@@ -4,7 +4,7 @@
 /* ===== THEME ===== */
 :root {
     color-scheme: dark;
-    --header-offset: 72px;
+    --header-offset: 68px;
     --bg-gradient: radial-gradient(circle at top, #141414, #070707);
     --text: #f7f7f7;
     --text-soft: #ececec;
@@ -169,7 +169,8 @@ header {
 nav { 
     display: flex; 
     align-items: center; 
-    padding: 10px 60px; 
+    height: var(--header-offset);
+    padding: 0 60px; 
     backdrop-filter: blur(12px); 
     background: var(--nav-bg); 
     border-bottom: 1px solid var(--surface-2); 
@@ -183,6 +184,7 @@ nav {
     text-decoration: none;
     margin-right: auto;
     position: relative;
+    height: 100%;
 }
 
 .brand-logo {
@@ -197,9 +199,15 @@ nav {
 
 .brand-logo-main {
     width: auto;
-    height: 48px;
+    height: 100%;
     border-radius: 0;
     object-fit: contain;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
     box-shadow: none;
 }
 
@@ -1958,12 +1966,13 @@ footer .container {
 
 @media (max-width: 768px) {
     :root {
-        --header-offset: 96px;
+        --header-offset: 88px;
     }
 
     nav {
         padding: 15px 20px;
         flex-wrap: wrap;
+        height: auto;
     }
 
     .nav-right {
@@ -2057,7 +2066,7 @@ footer .container {
 
     .brand-logo-main {
         min-width: 170px;
-        height: 40px;
+        height: 46px;
     }
 
     .brand-logo-compact,
