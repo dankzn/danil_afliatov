@@ -36,7 +36,7 @@
     --logo-box-bg: #ffffff;
     --input-bg: rgba(0, 0, 0, 0.6);
     --pride-gradient: linear-gradient(90deg, #e40303, #ff8c00, #ffed00, #008026, #004cff, #732982);
-    --scene-overlay: linear-gradient(180deg, rgba(6, 6, 6, 0.04), rgba(6, 6, 6, 0.22));
+    --spline-overlay: linear-gradient(180deg, rgba(6, 6, 6, 0.04), rgba(6, 6, 6, 0.22));
 }
 
 [data-theme="light"] {
@@ -71,7 +71,7 @@
     --shadow-strong: rgba(15, 23, 42, 0.18);
     --logo-box-bg: #ffffff;
     --input-bg: rgba(255, 255, 255, 0.9);
-    --scene-overlay: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(244, 245, 242, 0.26));
+    --spline-overlay: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(244, 245, 242, 0.26));
 }
 
 /* ===== PRIDE ===== */
@@ -106,7 +106,7 @@ body {
     padding-top: var(--header-offset);
 }
 
-.scene-bg {
+.spline-bg {
     position: fixed;
     inset: 0;
     z-index: 0;
@@ -114,7 +114,7 @@ body {
     background: var(--bg-gradient);
 }
 
-.scene-bg::before {
+.spline-bg::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -125,18 +125,16 @@ body {
     opacity: 0.65;
 }
 
-.scene-bg canvas {
+.spline-bg spline-viewer {
     width: 100%;
     height: 100%;
     display: block;
-    opacity: 1;
-    filter: saturate(1.35) contrast(1.2);
 }
 
-.scene-overlay {
+.spline-overlay {
     position: absolute;
     inset: 0;
-    background: var(--scene-overlay);
+    background: var(--spline-overlay);
 }
 
 .page-shell {

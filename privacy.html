@@ -17,21 +17,21 @@
             var saved = null;
             try { saved = localStorage.getItem('theme'); } catch (e) { saved = null; }
             var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-            var theme = saved || (prefersLight ? 'light' : 'dark');
+            var theme = saved || 'dark';
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div class="scene-bg" aria-hidden="true">
-        <canvas id="three-bg"></canvas>
-        <div class="scene-overlay"></div>
+    <div class="spline-bg" aria-hidden="true">
+        <spline-viewer url="https://prod.spline.design/f5ZbZ2EvZOf2SYa4/scene.splinecode"></spline-viewer>
+        <div class="spline-overlay"></div>
     </div>
     <header>
         <nav>
-            <a href="index.html" class="logo" style="--logo-main-url: url('assets/brand/logo_main_1_fade.svg');" aria-label="Aflyatov Danil">
-                <img class="brand-logo brand-logo-main" src="assets/brand/logo_main_1_fade.svg" alt="Aflyatov Danil logo" loading="eager">
+            <a href="index.html" class="logo" aria-label="Aflyatov Danil">
+                <img class="brand-logo brand-logo-main" src="assets/brand/logo_main_1.png" alt="Aflyatov Danil logo" loading="eager">
                 <img class="brand-logo brand-logo-compact" src="assets/brand/logo_app_cropped.png" alt="AD logo" loading="eager">
                 <img class="brand-logo brand-logo-compact-dark" src="assets/brand/logo_dark_cropped.png" alt="AD logo" loading="eager">
                 <img class="brand-logo brand-logo-compact-pride" src="assets/brand/logo_pride_cropped.png" alt="AD pride logo" loading="eager">
@@ -241,7 +241,6 @@
     <script src="assets/js/footer.js"></script>
     </div>
 
-        <script src="https://unpkg.com/three@0.164.1/build/three.min.js"></script>
-    <script src="assets/js/three-bg.js"></script>
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.73/build/spline-viewer.js"></script>
 </body>
 </html>
