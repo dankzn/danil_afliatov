@@ -185,12 +185,13 @@ nav {
 }
 
 .logo { 
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     text-decoration: none;
     margin-right: auto;
     position: relative;
     height: 100%;
+    min-width: 220px;
     overflow: visible;
 }
 
@@ -201,7 +202,10 @@ nav {
     object-fit: cover;
     border-radius: 16px;
     transition: opacity 0.25s ease, transform 0.25s ease;
-    grid-area: 1 / 1;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .brand-logo-main {
@@ -231,10 +235,10 @@ html[data-theme="light"] .brand-logo-main {
 .brand-logo-compact-dark,
 .brand-logo-compact-pride {
     opacity: 0;
-    height: 40px;
-    width: 40px;
-    border-radius: 12px;
-    transform: scale(0.94);
+    height: 100%;
+    width: auto;
+    border-radius: 14px;
+    transform: translateY(-50%) scale(0.94);
     pointer-events: none;
 }
 
@@ -249,13 +253,13 @@ html[data-theme="dark"] .brand-logo-main {
 
 html.nav-compact .brand-logo-main {
     opacity: 0;
-    transform: scale(0.96);
+    transform: translateY(-50%) scale(0.96);
     pointer-events: none;
 }
 
 html.nav-compact .brand-logo-compact {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(-50%) scale(1);
     pointer-events: auto;
 }
 
@@ -266,7 +270,7 @@ html[data-theme="dark"].nav-compact .brand-logo-compact {
 
 html[data-theme="dark"].nav-compact .brand-logo-compact-dark {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(-50%) scale(1);
     pointer-events: auto;
 }
 
@@ -278,7 +282,7 @@ html[data-pride="on"].nav-compact .brand-logo-compact-dark {
 
 html[data-pride="on"].nav-compact .brand-logo-compact-pride {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(-50%) scale(1);
     pointer-events: auto;
 }
 
@@ -1991,6 +1995,10 @@ footer .container {
         padding: 15px 20px;
         flex-wrap: wrap;
         height: auto;
+    }
+
+    .logo {
+        min-width: 170px;
     }
 
     .nav-right {
